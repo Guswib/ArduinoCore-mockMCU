@@ -1,43 +1,43 @@
 ##############################################################
 
-mock.name=Arduino mock MCU
-mock.build.core=arduino
-mock.build.crossprefix=arm-none-eabi-
-mock.build.compiler_path={runtime.tools.arm-none-eabi-gcc-7-2017q4.path}/bin/
+mock_v1.name=Arduino mock_v1 MCU
+mock_v1.build.core=arduino
+mock_v1.build.crossprefix=arm-none-eabi-
+mock_v1.build.compiler_path={runtime.tools.arm-none-eabi-gcc-7-2017q4.path}/bin/
 
-mock.build.variant=MOCK
-mock.build.mcu=mockMCU
-mock.build.architecture=mock
-mock.build.fpu=-mfpu=fpv4-sp-d16
-mock.build.float-abi=-mfloat-abi=hard
+mock_v1.build.variant=MOCK_V1
+mock_v1.build.mcu=mockMCU
+mock_v1.build.architecture=mock
+mock_v1.build.fpu=-mfpu=fpv4-sp-d16
+mock_v1.build.float-abi=-mfloat-abi=hard
 
-mock.build.board=MOCK
-mock.build.defines=-DF_CPU=48000000 -DMOCK
+mock_v1.build.board=MOCK
+mock_v1.build.defines=-DF_CPU=48000000 -DMOCK
  
 
-mock.compiler.fsp.defines={build.variant.path}/defines.txt
-mock.compiler.fsp.ldflags={build.variant.path}/ldflags.txt
-mock.compiler.fsp.cflags=-mthumb "@{compiler.fsp.defines}"
-mock.compiler.fsp.cxxflags=-mthumb "@{compiler.fsp.defines}"
-mock.compiler.fsp.includes={build.variant.path}/includes.txt
-# mock.compiler.fsp.extra_ldflags=--specs=nano.specs -lstdc++ -lsupc++ -lm -lc -lgcc -lnosys
-mock.compiler.fsp="{build.variant.path}/libs/libfsp.a"
+mock_v1.compiler.fsp.defines={build.variant.path}/defines.txt
+mock_v1.compiler.fsp.ldflags={build.variant.path}/ldflags.txt
+mock_v1.compiler.fsp.cflags=-mthumb "@{compiler.fsp.defines}"
+mock_v1.compiler.fsp.cxxflags=-mthumb "@{compiler.fsp.defines}"
+mock_v1.compiler.fsp.includes={build.variant.path}/includes.txt
+# mock_v1.compiler.fsp.extra_ldflags=--specs=nano.specs -lstdc++ -lsupc++ -lm -lc -lgcc -lnosys
+mock_v1.compiler.fsp="{build.variant.path}/libs/libfsp.a"
 
-# mock.upload.tool=dfu-util
-# mock.upload.tool.default=dfu-util
-# mock.upload.protocol=
-# mock.upload.transport=
-# mock.upload.vid=0x2341
-# mock.upload.pid=0x0369
-# mock.upload.address=0x00010000
-# mock.upload.interface=0
-# mock.upload.use_1200bps_touch=false
-# mock.upload.wait_for_upload_port=false
-# mock.upload.native_usb=true
-# mock.upload.maximum_size=262144
-# mock.upload.maximum_data_size=32768
+# mock_v1.upload.tool=dfu-util
+# mock_v1.upload.tool.default=dfu-util
+# mock_v1.upload.protocol=
+# mock_v1.upload.transport=
+# mock_v1.upload.vid=0x2341
+# mock_v1.upload.pid=0x0369
+# mock_v1.upload.address=0x00010000
+# mock_v1.upload.interface=0
+# mock_v1.upload.use_1200bps_touch=false
+# mock_v1.upload.wait_for_upload_port=false
+# mock_v1.upload.native_usb=true
+# mock_v1.upload.maximum_size=262144
+# mock_v1.upload.maximum_data_size=32768
 
-mock.debug.server.openocd.scripts.0=interface/{programmer.protocol}.cfg
-mock.debug.server.openocd.scripts.1={programmer.transport_script}
-mock.debug.server.openocd.scripts.2={runtime.platform.path}/debugger/R7FA4M1AB.cfg
-# mock.debug.svd_file={runtime.platform.path}/svd/R7FA4M1AB.svd
+mock_v1.debug.server.openocd.scripts.0=interface/{programmer.protocol}.cfg
+mock_v1.debug.server.openocd.scripts.1={programmer.transport_script}
+mock_v1.debug.server.openocd.scripts.2={runtime.platform.path}/debugger/R7FA4M1AB.cfg
+# mock_v1.debug.svd_file={runtime.platform.path}/svd/R7FA4M1AB.svd
