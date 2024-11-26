@@ -8,7 +8,7 @@
 
 class analogWave {
 private:
-  FspTimer timer;
+  //FspTimer timer;
   volatile uint32_t pin;
   uint16_t *buffer;
 
