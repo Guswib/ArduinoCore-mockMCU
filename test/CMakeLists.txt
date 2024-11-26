@@ -15,8 +15,8 @@ include_directories(../variants/mock_v1) #Path tho arduino-core
 
 include_directories(include)
 include_directories(external/catch/v2.13.9/include)
-set(arduinoCore_API ../../ArduinoCore-API )
-include_directories(${arduinoCore_API}) #Path tho arduino-core
+#set(arduinoCore_API ../../ArduinoCore-API )
+#include_directories(${arduinoCore_API}) #Path tho arduino-core
 
 ##########################################################################
 
