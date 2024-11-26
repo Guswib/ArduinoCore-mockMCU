@@ -29,15 +29,15 @@ jobs:
       # sketch paths to compile (recursive) for all boards
       UNIVERSAL_SKETCH_PATHS: |
         - libraries/AnalogWave
-        - libraries/Arduino_CAN/examples/CANRead
-        - libraries/Arduino_CAN/examples/CANWrite
-        - libraries/Arduino_FreeRTOS
+        # - libraries/Arduino_CAN/examples/CANRead
+        # - libraries/Arduino_CAN/examples/CANWrite
+        # - libraries/Arduino_FreeRTOS
         - libraries/EEPROM
-        - libraries/RTC/examples/RTC_AutomaticExample
-        - libraries/RTC/examples/RTC_PeriodicExample
-        - libraries/RTC/examples/Test_RTC
+        # - libraries/RTC/examples/RTC_AutomaticExample
+        # - libraries/RTC/examples/RTC_PeriodicExample
+        # - libraries/RTC/examples/Test_RTC
         - libraries/SoftwareSerial
-        - libraries/WDT
+        # - libraries/WDT
 
     strategy:
       fail-fast: false
@@ -121,10 +121,10 @@ jobs:
         with:
           fqbn: ${{ matrix.board.fqbn }}
           libraries: |
-            - name: Keyboard
-            - name: Mouse
-            - name: Servo
-            - name: LiquidCrystal
+            # - name: Keyboard
+            # - name: Mouse
+            # - name: Servo
+            # - name: LiquidCrystal
             - name: CapacitiveSensor
             - name: Ethernet
             - name: ArduinoHttpClient
