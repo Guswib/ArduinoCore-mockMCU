@@ -58,6 +58,10 @@ set(TEST_DUT_SRCS
   ${arduinoCore_API}/api/Print.cpp
   ${arduinoCore_API}/api/Common.cpp
 
+  ${arduinoCore_API}/UART0.cpp
+  ${arduinoCore_API}/UART1.cpp
+  ${arduinoCore_API}/UART2.cpp
+  ${arduinoCore_API}/UART3.cpp
   ../variants/mock_v1/variant.cpp
 )
 
