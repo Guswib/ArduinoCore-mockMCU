@@ -26,7 +26,7 @@ jobs:
     permissions: {}
 
     env:
-      # sketch paths to compile (recursive) for all boards
+      # sketch paths to compile (recursive) for all boards 
       UNIVERSAL_SKETCH_PATHS: |
         - libraries/AnalogWave
         # - libraries/Arduino_CAN/examples/CANRead
