@@ -49,7 +49,7 @@ jobs:
         # make board type-specific customizations to the matrix jobs
         include:
           - board:
-              fqbn: "arduino-git:renesas:portenta_c33"
+              fqbn: "arduino-git:mock:mock_v1"
             
     steps:
       - name: Checkout repository
@@ -79,13 +79,15 @@ jobs:
         uses: rainlabs-eu/ghaction-cmake-quality@v4.2.0
         with:
           # Print extra information when running
-          verbose: # default is true
+          verbose: true # default is true
           # CMake build directory
           build_directory: # default is ./out
           # CMake source directory
-          source_directory: # default is .
+          source_directory: ./test
           # Extra dependencies as apt packages to install
-          dependencies: # optional
+          dependencies: |
+            ./cores/arduino
+            ./libraries/spi
           # Extra variables to set in environemnt when running configure step, for example CC=gcc, CXX=g++
           cmake_configure_environment: # optional, default is 
           # One of clang sanitizers compile with, i.e. address, memory, undefined, dataflow, safe-stack
