@@ -1,0 +1,117 @@
+name: Compile Tests
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/compile-tests.yml"
+      - "cores/**"
+      - "extras/**"
+      - "libraries/**"
+      - "variants/**"
+      - "boards.txt"
+      - "platform.txt"
+  push:
+    paths:
+      - ".github/workflows/compile-tests.yml"
+      - "cores/**"
+      - "extras/**"
+      - "libraries/**"
+      - "variants/**"
+      - "boards.txt"
+      - "platform.txt"
+
+jobs:
+  compile-test:
+    runs-on: ubuntu-latest
+    permissions: {}
+
+    env:
+      # sketch paths to compile (recursive) for all boards
+      UNIVERSAL_SKETCH_PATHS: |
+        - libraries/AnalogWave
+        # - libraries/Arduino_CAN/examples/CANRead
+        # - libraries/Arduino_CAN/examples/CANWrite
+        # - libraries/Arduino_FreeRTOS
+        - libraries/EEPROM
+        # - libraries/RTC/examples/RTC_AutomaticExample
+        # - libraries/RTC/examples/RTC_PeriodicExample
+        # - libraries/RTC/examples/Test_RTC
+        - libraries/SoftwareSerial
+        # - libraries/WDT
+    strategy:
+      fail-fast: false
+
+      matrix:
+        board: [
+          {"fqbn": "arduino-git:mock:mock_v1"},
+        ]
+
+        # make board type-specific customizations to the matrix jobs
+        include:
+          - board:
+              fqbn: "arduino-git:renesas:portenta_c33"
+            
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # The source files are in a subfolder of the ArduinoCore-API repository, so it's not possible to clone it directly to the final destination in the core
+      - name: Checkout ArduinoCore-API
+        uses: actions/checkout@v3
+        with:
+          repository: arduino/ArduinoCore-API
+          path: extras/ArduinoCore-API
+
+      - name: Check if API should be compiled in the core
+        id: checkapi
+        run: |
+          if [[ $(grep -r api platform.txt) ]]; then echo "::set-output name=IS_API::true"; fi
+      - name: Install ArduinoCore-API
+        run: rm "$GITHUB_WORKSPACE/cores/arduino/api" && mv "$GITHUB_WORKSPACE/extras/ArduinoCore-API/api" "$GITHUB_WORKSPACE/cores/arduino"
+        if: steps.checkapi.outputs.IS_API == 'true'
+
+      - name: List files in core
+        run: tree ./
+        
+      - name: cmake-quality
+        # You may pin to the exact commit or the version.
+        # uses: rainlabs-eu/ghaction-cmake-quality@219ac713d460b6b2d4831b080f5c6e83438eeaeb
+        uses: rainlabs-eu/ghaction-cmake-quality@v4.2.0
+        with:
+          # Print extra information when running
+          verbose: # default is true
+          # CMake build directory
+          build_directory: # default is ./out
+          # CMake source directory
+          source_directory: # default is .
+          # Extra dependencies as apt packages to install
+          dependencies: # optional
+          # Extra variables to set in environemnt when running configure step, for example CC=gcc, CXX=g++
+          cmake_configure_environment: # optional, default is 
+          # One of clang sanitizers compile with, i.e. address, memory, undefined, dataflow, safe-stack
+          cmake_configure_sanitize: # optional
+          # CMake configure command extra args (appended to default ones)
+          cmake_configure_extra_args: # optional
+          # Call CMake for building
+          cmake_build_enable: # default is true
+          # CMake build options
+          cmake_build_options: # default is 
+          # Enable running ctest in build directory after build
+          ctest_enable: # default is false
+          # CTest extra flags to pass
+          ctest_flags: # optional
+          # CTest collect and upload coverage
+          ctest_coverage: # default is false
+          # Call CMake for installing
+          cmake_install_enable: # default is false
+          # Where to install, mandatory if cmake_install_enable=true
+          cmake_install_directory: # optional
+          # Other cmake --install ... <options>
+          cmake_install_options: # optional
+          
+
+      - name: Save memory usage change report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: sketches-reports
+          path: sketches-reports
