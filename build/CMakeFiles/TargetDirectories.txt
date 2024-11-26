@@ -1,0 +1,3 @@
+C:/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/build/CMakeFiles/exmaple_test.dir
+C:/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/build/CMakeFiles/edit_cache.dir
+C:/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/build/CMakeFiles/rebuild_cache.dir

@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+ArduinoCore-API
+CMakeCache.txt
+test/CMakeFiles
+test/bin
