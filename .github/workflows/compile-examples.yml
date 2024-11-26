@@ -125,21 +125,21 @@ jobs:
             # - name: Mouse
             # - name: Servo
             # - name: LiquidCrystal
-            - name: CapacitiveSensor
-            - name: Ethernet
-            - name: ArduinoHttpClient
-            - name: NTPClient
-            - name: ArduinoMqttClient
-            - name: Stepper
-            - name: SD
-            - name: Arduino_JSON
-            - name: ArduinoBLE
-            - name: Firmata
-            - name: ArduinoModbus
-            - name: ArduinoDMX
-            - name: ArduinoRS485
-            - name: ArduinoIoTCloud
-            - name: ArduinoGraphics
+            # - name: CapacitiveSensor
+            # - name: Ethernet
+            # - name: ArduinoHttpClient
+            # - name: NTPClient
+            # - name: ArduinoMqttClient
+            # - name: Stepper
+            # - name: SD
+            # - name: Arduino_JSON
+            # - name: ArduinoBLE
+            # - name: Firmata
+            # - name: ArduinoModbus
+            # - name: ArduinoDMX
+            # - name: ArduinoRS485
+            # - name: ArduinoIoTCloud
+            # - name: ArduinoGraphics
           platforms: |
             # Use Board Manager to install the latest release of Arduino Renesas Boards to get the toolchain
             # - name: "arduino:renesas_uno"
