@@ -72,6 +72,11 @@ jobs:
 
       - name: List files in core
         run: tree ./
+
+      - uses: arduino/cpp-test-action@main
+        with:
+          source-path: test
+          build-path: test/build
         
       - name: cmake-quality
         # You may pin to the exact commit or the version.
