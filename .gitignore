@@ -35,3 +35,5 @@ ArduinoCore-API
 CMakeCache.txt
 test/CMakeFiles
 test/bin
+build
+build/.cmake

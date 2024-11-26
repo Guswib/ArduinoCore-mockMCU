@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Site BuildName="(empty)"
+<Site BuildName="Win32-mingw32-make"
 	BuildStamp="20241126-1511-Experimental"
-	Name="(empty)"
+	Name="arenz-wks-13"
 	Generator="ctest-3.31.0-rc1"
-	CompilerName=""
-	CompilerVersion=""
+	CompilerName="C:/msys64/mingw64/bin/g++.exe"
+	CompilerVersion="12.2.0"
 	OSName="Windows"
 	Hostname="arenz-wks-13"
 	OSRelease=" Professional"
@@ -22,14 +22,14 @@
 	TotalVirtualMemory="32460"
 	TotalPhysicalMemory="16076"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="3699"
+	ProcessorClockFrequency="3700"
 	>
 	<Testing>
-		<StartDateTime>Nov 26 16:11 W. Europe Standard Time</StartDateTime>
-		<StartTestTime>1732633900</StartTestTime>
+		<StartDateTime>Nov 26 16:22 W. Europe Standard Time</StartDateTime>
+		<StartTestTime>1732634560</StartTestTime>
 		<TestList/>
-		<EndDateTime>Nov 26 16:11 W. Europe Standard Time</EndDateTime>
-		<EndTestTime>1732633900</EndTestTime>
+		<EndDateTime>Nov 26 16:22 W. Europe Standard Time</EndDateTime>
+		<EndTestTime>1732634560</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

@@ -6,5 +6,5 @@ CXX_DEFINES = -DHOST
 
 CXX_INCLUDES = @CMakeFiles/exmaple_test.dir/includes_CXX.rsp
 
-CXX_FLAGS =  --coverage -Wno-deprecated-copy -std=gnu++11 -Wno-cast-function-type
+CXX_FLAGS =  --coverage -Wno-deprecated-copy -g -std=gnu++11 -Wno-cast-function-type
 

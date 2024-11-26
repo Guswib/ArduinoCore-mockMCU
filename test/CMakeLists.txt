@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.25)
 ##########################################################################
 
 project(exmaple_test)
-
+include (CTest)
 ##########################################################################
 
 include_directories(../cores/arduino) #Path tho arduino-core
