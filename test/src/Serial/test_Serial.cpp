@@ -19,7 +19,7 @@
 
 TEST_CASE ("Testing Serial", "[Stream-find-01]")
 {
-  Serial.begin(9600);
+  //Serial.begin(9600);
   StreamMock mock;
 
   WHEN ("'target' is contained in stream")
