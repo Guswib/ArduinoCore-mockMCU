@@ -81,9 +81,9 @@ typedef uint8_t rx_buffer_index_t;
 
 /* Universal Synchronous and Asynchronous Receiver and Transmitter */
 
-typedef volatile uint8_t register8_t;
-typedef volatile uint16_t register16_t;
-typedef volatile uint32_t register32_t;
+typedef  uint8_t register8_t;
+typedef  uint16_t register16_t;
+typedef  uint32_t register32_t;
 
 #define _WORDREGISTER(regname) __extension__ union { register16_t regname; struct { register8_t regname##L; register8_t regname##H; }; }
 
@@ -111,24 +111,24 @@ class UartClass : public HardwareSerial
      
   protected:
     StreamMock mockstream;
-    volatile USART_t * const _hwserial_module;
+   USART_t * const _hwserial_module;
 
-    volatile uint8_t const _hwserial_rx_pin;
-    volatile uint8_t const _hwserial_tx_pin;
+     uint8_t const _hwserial_rx_pin;
+     uint8_t const _hwserial_tx_pin;
 
-    volatile uint8_t const _uart_mux;
+     uint8_t const _uart_mux;
 
     // Has any byte been written to the UART since begin()
     bool _written;
 
-    volatile rx_buffer_index_t _rx_buffer_head;
-    volatile rx_buffer_index_t _rx_buffer_tail;
-    volatile tx_buffer_index_t _tx_buffer_head;
-    volatile tx_buffer_index_t _tx_buffer_tail;
+     rx_buffer_index_t _rx_buffer_head;
+     rx_buffer_index_t _rx_buffer_tail;
+     tx_buffer_index_t _tx_buffer_head;
+     tx_buffer_index_t _tx_buffer_tail;
 
-    volatile uint8_t _hwserial_dre_interrupt_vect_num;
-    volatile uint8_t _hwserial_dre_interrupt_elevated;
-    volatile uint8_t _prev_lvl1_interrupt_vect;
+     uint8_t _hwserial_dre_interrupt_vect_num;
+     uint8_t _hwserial_dre_interrupt_elevated;
+     uint8_t _prev_lvl1_interrupt_vect;
 
     // Don't put any members after these buffers, since only the first
     // 32 bytes of this struct can be accessed quickly using the ldd
@@ -140,11 +140,11 @@ class UartClass : public HardwareSerial
     //UartClass(){;}
     //inline UartClass(volatile USART_t *hwserial_module, uint8_t hwserial_rx_pin, uint8_t hwserial_tx_pin, uint8_t dre_vect_num, uint8_t uart_mux);
     UartClass(
-        volatile USART_t *hwserial_module,
-        volatile uint8_t hwserial_rx_pin,
-        volatile uint8_t hwserial_tx_pin,
-        volatile uint8_t hwserial_dre_interrupt_vect_num,
-        volatile uint8_t uart_mux) :
+         USART_t *hwserial_module,
+         uint8_t hwserial_rx_pin,
+         uint8_t hwserial_tx_pin,
+         uint8_t hwserial_dre_interrupt_vect_num,
+         uint8_t uart_mux) :
     _hwserial_module(hwserial_module),
     _hwserial_rx_pin(hwserial_rx_pin),
     _hwserial_tx_pin(hwserial_tx_pin),
