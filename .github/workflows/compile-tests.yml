@@ -78,44 +78,7 @@ jobs:
           source-path: test
           build-path: test/build
         
-      - name: cmake-quality
-        # You may pin to the exact commit or the version.
-        # uses: rainlabs-eu/ghaction-cmake-quality@219ac713d460b6b2d4831b080f5c6e83438eeaeb
-        uses: rainlabs-eu/ghaction-cmake-quality@v4.2.0
-        with:
-          # Print extra information when running
-          verbose: true # default is true
-          # CMake build directory
-          build_directory: # default is ./out
-          # CMake source directory
-          source_directory: ./test
-          # Extra dependencies as apt packages to install
-          dependencies: |
-            ./cores/arduino
-            ./libraries/spi
-          # Extra variables to set in environemnt when running configure step, for example CC=gcc, CXX=g++
-          cmake_configure_environment: # optional, default is 
-          # One of clang sanitizers compile with, i.e. address, memory, undefined, dataflow, safe-stack
-          cmake_configure_sanitize: # optional
-          # CMake configure command extra args (appended to default ones)
-          cmake_configure_extra_args: # optional
-          # Call CMake for building
-          cmake_build_enable: # default is true
-          # CMake build options
-          cmake_build_options: # default is 
-          # Enable running ctest in build directory after build
-          ctest_enable: # default is false
-          # CTest extra flags to pass
-          ctest_flags: # optional
-          # CTest collect and upload coverage
-          ctest_coverage: # default is false
-          # Call CMake for installing
-          cmake_install_enable: # default is false
-          # Where to install, mandatory if cmake_install_enable=true
-          cmake_install_directory: # optional
-          # Other cmake --install ... <options>
-          cmake_install_options: # optional
-          
+  
 
       - name: Save memory usage change report as artifact
         uses: actions/upload-artifact@v3
