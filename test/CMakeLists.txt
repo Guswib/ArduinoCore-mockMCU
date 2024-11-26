@@ -11,6 +11,8 @@ include (CTest)
 ##########################################################################
 
 include_directories(../cores/arduino) #Path tho arduino-core
+include_directories(../variants/mock_v1) #Path tho arduino-core
+
 include_directories(include)
 include_directories(external/catch/v2.13.9/include)
 set(arduinoCore_API ../../ArduinoCore-API )
@@ -43,6 +45,7 @@ set(TEST_SRCS
   src/Stream/test_readStringUntil.cpp
   src/Stream/test_setTimeout.cpp
  
+  src/Serial/test_Serial.cpp
    
 )
 
@@ -55,6 +58,7 @@ set(TEST_DUT_SRCS
   ${arduinoCore_API}/api/Print.cpp
   ${arduinoCore_API}/api/Common.cpp
 
+  ../variants/mock_v1/variant.cpp
 )
 
 ##########################################################################

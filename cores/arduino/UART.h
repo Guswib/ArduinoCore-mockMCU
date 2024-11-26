@@ -26,7 +26,7 @@
 #include <inttypes.h>
 #include "api/HardwareSerial.h"
 #include "pins_arduino.h"
-#include "include/StreamMock.h"
+#include "StreamMock.h"
 
 
 using namespace arduino;
@@ -186,20 +186,20 @@ class UartClass : public HardwareSerial
     UartClass* bound = NULL;
 };
 
-#if defined(HWSERIAL0)
-  extern UartClass Serial;
+#if SERIAL_HOWMANY > 0
+  extern UartClass _UART0_;
   #define HAVE_HWSERIAL0
 #endif
-#if defined(HWSERIAL1)
-  extern UartClass Serial1;
+#if SERIAL_HOWMANY > 1
+  extern UartClass _UART1_;
   #define HAVE_HWSERIAL1
 #endif
-#if defined(HWSERIAL2)
-  extern UartClass Serial2;
+#if SERIAL_HOWMANY > 2
+  extern UartClass _UART2_;
   #define HAVE_HWSERIAL2
 #endif
-#if defined(HWSERIAL3)
-  extern UartClass Serial3;
+#if SERIAL_HOWMANY > 3
+  extern UartClass _UART3_;
   #define HAVE_HWSERIAL3
 #endif
 

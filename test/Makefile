@@ -646,6 +646,30 @@ C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduin
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.s
 .PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.s
 
+C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj
+.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.obj
+
+# target to build an object file
+C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj
+.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj
+
+C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i
+.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.i
+
+# target to preprocess a source file
+C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i
+.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i
+
+C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s
+.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.s
+
+# target to generate assembly for a file
+C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s
+.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s
+
 src/MillisFake.obj: src/MillisFake.cpp.obj
 .PHONY : src/MillisFake.obj
 
@@ -693,6 +717,30 @@ src/PrintMock.s: src/PrintMock.cpp.s
 src/PrintMock.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/PrintMock.cpp.s
 .PHONY : src/PrintMock.cpp.s
+
+src/Serial/test_Serial.obj: src/Serial/test_Serial.cpp.obj
+.PHONY : src/Serial/test_Serial.obj
+
+# target to build an object file
+src/Serial/test_Serial.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Serial/test_Serial.cpp.obj
+.PHONY : src/Serial/test_Serial.cpp.obj
+
+src/Serial/test_Serial.i: src/Serial/test_Serial.cpp.i
+.PHONY : src/Serial/test_Serial.i
+
+# target to preprocess a source file
+src/Serial/test_Serial.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Serial/test_Serial.cpp.i
+.PHONY : src/Serial/test_Serial.cpp.i
+
+src/Serial/test_Serial.s: src/Serial/test_Serial.cpp.s
+.PHONY : src/Serial/test_Serial.s
+
+# target to generate assembly for a file
+src/Serial/test_Serial.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Serial/test_Serial.cpp.s
+.PHONY : src/Serial/test_Serial.cpp.s
 
 src/Stream/test_find.obj: src/Stream/test_find.cpp.obj
 .PHONY : src/Stream/test_find.obj
@@ -1038,12 +1086,18 @@ help:
 	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.obj
 	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.i
 	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.s
+	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.obj
+	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.i
+	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.s
 	@echo ... src/MillisFake.obj
 	@echo ... src/MillisFake.i
 	@echo ... src/MillisFake.s
 	@echo ... src/PrintMock.obj
 	@echo ... src/PrintMock.i
 	@echo ... src/PrintMock.s
+	@echo ... src/Serial/test_Serial.obj
+	@echo ... src/Serial/test_Serial.i
+	@echo ... src/Serial/test_Serial.s
 	@echo ... src/Stream/test_find.obj
 	@echo ... src/Stream/test_find.i
 	@echo ... src/Stream/test_find.s
