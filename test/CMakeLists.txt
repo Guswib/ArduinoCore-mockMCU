@@ -49,7 +49,7 @@ set(TEST_SRCS
    
 )
 
-set(arduinoCore-API )
+# set(arduinoCore-API )
 set(TEST_DUT_SRCS
    
   .
