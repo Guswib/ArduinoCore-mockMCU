@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.25)
 
 ##########################################################################
 
-project(exmaple_test)
+project(example_test)
 include (CTest)
 ##########################################################################
 message("\n\nArduino_API at: " ${PROJECT_SOURCE_DIR})
