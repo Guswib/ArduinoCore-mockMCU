@@ -12,7 +12,7 @@ include (CTest)
 
 cmake_path(GET PROJECT_SOURCE_DIR PARENT_PATH PRJ_ROOT)
 
-message("\n\PROJECT ROOT at: " ${PRJ_ROOT})
+message("\nPROJECT ROOT at: " ${PRJ_ROOT})
 include_directories(./include)
 message("hej")
 
