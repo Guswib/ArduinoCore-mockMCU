@@ -80,7 +80,7 @@ jobs:
         with:
           source-path: test
           build-path: test/build
-          runtime-path: test/build/bin/test-ArduinoCore-API
+          runtime-path: test/build/bin/example_test
   
 
       - name: Save memory usage change report as artifact
