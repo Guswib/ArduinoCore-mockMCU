@@ -11,7 +11,7 @@ include (CTest)
 ##########################################################################
 message("\n\nArduino_API at: " ${PROJECT_SOURCE_DIR})
 include_directories(./include)
-
+message("hej")
 set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
 include_directories(${arduinoCore}) #Path tho arduino-core
 
