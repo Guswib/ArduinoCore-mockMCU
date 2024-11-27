@@ -19,6 +19,8 @@ message("hej")
 set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
 cmake_path(APPEND arduinoCore "${PRJ_ROOT}" "cores/arduino")
 
+message("Arduino Core:   "${arduinoCore})
+
 include_directories(${arduinoCore}) #Path tho arduino-core
 cmake_path(APPEND arduinoCore_API "${PRJ_ROOT}" "cores/arduino/api")
 
