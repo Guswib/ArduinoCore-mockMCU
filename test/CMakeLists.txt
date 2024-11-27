@@ -9,15 +9,31 @@ cmake_minimum_required(VERSION 3.25)
 project(exmaple_test)
 include (CTest)
 ##########################################################################
+message("\n\nArduino_API at: " ${PROJECT_SOURCE_DIR})
+include_directories(./include)
 
-include_directories(../cores/arduino) #Path tho arduino-core
+set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
+include_directories(${arduinoCore}) #Path tho arduino-core
+
+set(arduinoCore_API ../cores/arduino/api )
+if(NOT IS_DIRECTORY ${arduinoCore_API})
+  set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../../ArduinoCore-API/api )
+  # include_directories(${arduinoCore_API})
+endif()
+set(arduinoCore_API_exists false )
+if(EXISTS ${arduinoCore_API})
+  set(arduinoCore_API_exists true )
+endif()
+message("Arduino_API at:      " ${arduinoCore_API} "       exists?" ${arduinoCore_API_exists})
+
+
+
+
 include_directories(../variants/mock_v1) #Path tho arduino-core
 
-include_directories(include)
 include_directories(external/catch/v2.13.9/include)
-set(arduinoCore_API ../cores/arduino )
-#include_directories(${arduinoCore_API}) #Path tho arduino-core
 
+message("Included dir:  " ${INCLUDE_DIRECTORIES})
 ##########################################################################
 
 
@@ -53,33 +69,33 @@ set(TEST_SRCS
 set(TEST_DUT_SRCS
    
   .
-  ${arduinoCore_API}/api/Stream.cpp
-  ${arduinoCore_API}/api/String.cpp
-  ${arduinoCore_API}/api/Print.cpp
-  ${arduinoCore_API}/api/Common.cpp
+  ${arduinoCore_API}/Stream.cpp
+  ${arduinoCore_API}/String.cpp
+  ${arduinoCore_API}/Print.cpp
+  ${arduinoCore_API}/Common.cpp
 
-  ${arduinoCore_API}/UART0.cpp
-  ${arduinoCore_API}/UART1.cpp
-  ${arduinoCore_API}/UART2.cpp
-  ${arduinoCore_API}/UART3.cpp
+  ${arduinoCore}/UART.cpp
+  ${arduinoCore}/UART0.cpp
+  ${arduinoCore}/UART1.cpp
+  ${arduinoCore}/UART2.cpp
+  ${arduinoCore}/UART3.cpp
   ../variants/mock_v1/variant.cpp
 )
-
+#message(${TEST_DUT_SRCS})
 ##########################################################################
 
 set(TEST_TARGET_SRCS
   src/main.cpp
   #src/dtostrf.cpp
-  ../cores/arduino/dtostrf.cpp
+  ${arduinoCore}/dtostrf.cpp
   #src/itoa.cpp
-  ../cores/arduino/itoa.cpp
+  ${arduinoCore}/itoa.cpp
   src/MillisFake.cpp
   src/PrintMock.cpp
   src/StreamMock.cpp
   ${TEST_SRCS}
   ${TEST_DUT_SRCS}
 )
-
 ##########################################################################
 
 add_compile_definitions(HOST)

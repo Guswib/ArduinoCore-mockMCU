@@ -29,7 +29,7 @@
 #include "UART.h"
 
 
-#include "include/StreamMock.h"
+#include "StreamMock.h"
 
 /* 
 void serialEventRun(void)
@@ -55,7 +55,15 @@ void serialEventRun(void)
 #define TX_BUFFER_ATOMIC
 #endif
 
+
+
+
+
 // Actual interrupt handlers //////////////////////////////////////////////////////////////
+
+
+
+
 
 void UartClass::_tx_data_empty_irq(void)
 {
@@ -85,7 +93,7 @@ void UartClass::begin(unsigned long baud, uint16_t config)
     //Make sure global interrupts are disabled during initialization
     //uint8_t oldSREG = SREG;
 
-    baud_setting = (((8 * F_CPU) / baud) + 1) / 2;
+    baud_setting = 100;
     
     _written = false;
 

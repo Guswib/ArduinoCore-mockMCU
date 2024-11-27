@@ -137,7 +137,7 @@ class UartClass : public HardwareSerial
     unsigned char _tx_buffer[SERIAL_TX_BUFFER_SIZE];
 
   public:
-    //UartClass(){;}
+    
     //inline UartClass(volatile USART_t *hwserial_module, uint8_t hwserial_rx_pin, uint8_t hwserial_tx_pin, uint8_t dre_vect_num, uint8_t uart_mux);
     UartClass(
          USART_t *hwserial_module,
@@ -156,7 +156,7 @@ class UartClass : public HardwareSerial
     _prev_lvl1_interrupt_vect(0)
     {
     };
-    
+    virtual ~UartClass(){};
 
     void begin(unsigned long baud) { begin(baud, SERIAL_8N1); }
     void begin(unsigned long, uint16_t);
