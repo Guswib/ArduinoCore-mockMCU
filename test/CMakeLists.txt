@@ -15,7 +15,7 @@ include_directories(./include)
 set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
 include_directories(${arduinoCore}) #Path tho arduino-core
 
-set(arduinoCore_API ../cores/arduino/api )
+set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../cores/arduino/api )
 if(NOT IS_DIRECTORY ${arduinoCore_API})
   set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../../ArduinoCore-API/api )
   #include_directories(../ArduinoCore-API/api)
