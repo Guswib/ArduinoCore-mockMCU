@@ -9,13 +9,21 @@ cmake_minimum_required(VERSION 3.25)
 project(example_test)
 include (CTest)
 ##########################################################################
-message("\n\nArduino_API at: " ${PROJECT_SOURCE_DIR})
+
+cmake_path(GET PROJECT_SOURCE_DIR PARENT_PATH PRJ_ROOT)
+
+message("\n\PROJECT ROOT at: " ${PRJ_ROOT})
 include_directories(./include)
 message("hej")
-set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
-include_directories(${arduinoCore}) #Path tho arduino-core
 
-set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../cores/arduino/api )
+set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
+cmake_path(APPEND arduinoCore "${PRJ_ROOT}" "cores/arduino")
+
+include_directories(${arduinoCore}) #Path tho arduino-core
+cmake_path(APPEND arduinoCore_API "${PRJ_ROOT}" "cores/arduino/api")
+
+#set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../cores/arduino/api )
+
 if(NOT IS_DIRECTORY ${arduinoCore_API})
   #set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../ArduinoCore-API/api )
   #include_directories(../ArduinoCore-API/api)

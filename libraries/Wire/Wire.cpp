@@ -31,6 +31,9 @@ extern "C" {
 #include "Wire.h"
 #include <api/Print.h>
 
+#include "StreamMock.h"
+
+
 
 #define DEFAULT_FREQUENCY 100000
 
@@ -53,6 +56,7 @@ void (*TwoWire::user_onReceive)(int);
 
 TwoWire::TwoWire()
 {
+
 }
 
 // Public Methods //////////////////////////////////////////////////////////////
@@ -65,7 +69,8 @@ void TwoWire::begin(void)
 	txBufferIndex = 0;
 	txBufferLength = 0;
 
-	//TWI_MasterInit(DEFAULT_FREQUENCY);	
+	//TWI_MasterInit(DEFAULT_FREQUENCY);
+	Serial.println("Wire activated");	
 }
 
 void TwoWire::begin(uint8_t address)
@@ -80,7 +85,8 @@ void TwoWire::begin(uint8_t address)
 	
 	//TWI_attachSlaveTxEvent(onRequestService, txBuffer); // default callback must exist
 	//TWI_attachSlaveRxEvent(onReceiveService, rxBuffer, BUFFER_LENGTH); // default callback must exist
-	
+	Serial.println("Wire activated");	
+
 }
 
 void TwoWire::begin(int address)
@@ -130,6 +136,8 @@ size_t TwoWire::requestFrom(int address, int quantity, int sendStop)
 
 void TwoWire::beginTransmission(uint8_t address)
 {
+	Serial.println("Wire-Tx: ");	
+
   // indicate that we are transmitting
   transmitting = 1;
   // set address of targeted slave
@@ -168,7 +176,8 @@ uint8_t TwoWire::endTransmission(bool sendStop)
 	
 	// indicate that we are done transmitting
 	transmitting = 0;
-	
+	Serial.println("\nWire-End-Tx: ");	
+
 	return status;
 }
 
@@ -197,7 +206,8 @@ size_t TwoWire::write(uint8_t data)
 
 	/* Update buffer length */
 	txBufferLength = txBufferIndex;
-	 
+	Serial.print(data);
+	Serial.print(" ");
 	return 1;
 }
 
