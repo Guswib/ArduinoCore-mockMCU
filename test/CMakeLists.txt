@@ -12,9 +12,9 @@ include (CTest)
 
 cmake_path(GET PROJECT_SOURCE_DIR PARENT_PATH PRJ_ROOT)
 
-message("\nPROJECT ROOT at: " ${PRJ_ROOT})
+message("\n\nPROJECT ROOT at: " ${PRJ_ROOT})
 include_directories(./include)
-message("hej")
+message("Other Paths:")
 
 set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
 cmake_path(APPEND arduinoCore "${PRJ_ROOT}" "cores/arduino")
