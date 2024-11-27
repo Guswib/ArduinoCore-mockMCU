@@ -31,7 +31,7 @@
 *.out
 *.app
 
-cores/Arduino/api
+#cores/Arduino/api
 ArduinoCore-API
 CMakeCache.txt
 test/CMakeFiles
