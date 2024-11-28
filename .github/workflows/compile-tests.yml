@@ -21,7 +21,7 @@ on:
       - "boards.txt"
       - "platform.txt"
       - "test/src/**"
-      - "test/src/*"
+      - "test/*"
 
 jobs:
   compile-test:
