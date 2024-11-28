@@ -41,7 +41,7 @@ build/.cmake
 test/DartConfiguration.tcl
 test/*.cmake
 test/*.tcl
-
+test/Testing
 test/Makefile
 
 *.cmake

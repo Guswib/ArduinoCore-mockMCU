@@ -8,20 +8,20 @@ cmake_minimum_required(VERSION 3.25)
 
 ##########################################################################
 
-project(example_test)
+project(example_test LANGUAGES CXX)
 include (CTest)
 ##########################################################################
 
 cmake_path(GET PROJECT_SOURCE_DIR PARENT_PATH PRJ_ROOT)
-
-message("\n\nPROJECT ROOT at: " ${PRJ_ROOT})
+message("\n\n")
+message("PROJECT ROOT at:    " ${PRJ_ROOT})
 include_directories(./include)
 message("Other Paths:")
 
 set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
 cmake_path(APPEND arduinoCore "${PRJ_ROOT}" "cores/arduino")
 
-message("Arduino Core:   ${arduinoCore}")
+message("Arduino Core:       ${arduinoCore}")
 
 include_directories(${arduinoCore}) #Path tho arduino-core
 cmake_path(APPEND arduinoCore_API "${PRJ_ROOT}" "cores/arduino/api")
@@ -50,6 +50,8 @@ message("Arduino_API at:      " ${arduinoCore_API} "       exists?" ${arduinoCor
 include_directories(../variants/mock_v1) #Path tho arduino-core
 
 include_directories(external/catch/v2.13.9/include)
+#target_include_directories(Catch INTERFACE "external/catch/v2.13.9/include")
+
 
 message("Included dir:  " ${INCLUDE_DIRECTORIES})
 ##########################################################################
@@ -125,13 +127,42 @@ add_compile_options(-ftest-coverage)
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} --coverage")
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -Wno-deprecated-copy -fprofile-arcs")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -fprofile-arcs")
+#set( CMAKE_EXE_LINKER_FLAGS "$CMALE_EXE_LINKER_FLAGS")
 
 ##########################################################################
+
+include(FetchContent)
+
+FetchContent_Declare(
+  Catch2 
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG v2.13.10
+  )
+  
+cmake_path(APPEND catch2_SOURCE_DIR "${PROJECT_SOURCE_DIR}" "build/_deps/catch2-src")
+
+list(APPEND CMAKE_MODULE_PATH "${catch2_SOURCE_DIR}/contrib")
+FetchContent_MakeAvailable(Catch2)
+
+
+
+#######################################
 
 add_executable(
   ${TEST_TARGET}
   ${TEST_TARGET_SRCS}
 )
 
+
 ##########################################################################
+#target_link_libraries(${TEST_TARGET} PUBLIC Catch2::Catch2WithMain)
+target_link_libraries(${TEST_TARGET} PUBLIC Catch2::Catch2)
+
+# find_package(Catch2 REQUIRED)
+enable_testing()
+include(Catch)
+add_test(NAME MockV1testing COMMAND ${TEST_TARGET} )
+add_test(NAME catch_test COMMAND ${TEST_TARGET} --success)
+
+catch_discover_tests(${TEST_TARGET})
