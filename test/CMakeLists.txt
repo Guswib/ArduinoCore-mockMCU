@@ -21,16 +21,16 @@ message("Other Paths:")
 set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
 cmake_path(APPEND arduinoCore "${PRJ_ROOT}" "cores/arduino")
 
-message("Arduino Core:   "${arduinoCore})
+message("Arduino Core:   ${arduinoCore}")
 
 include_directories(${arduinoCore}) #Path tho arduino-core
 cmake_path(APPEND arduinoCore_API "${PRJ_ROOT}" "cores/arduino/api")
 
 #set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../cores/arduino/api )
 
-if(NOT EXISTS "${arduinoCore_API}/arduino-api.h")
-  #cmake_path(GET PRJ_ROOT PARENT_PATH arduinoCore_API)
-  #cmake_path(APPEND arduinoCore_API "${arduinoCore_API}" "ArduinoCore-API/api")
+if(NOT EXISTS "${arduinoCore_API}/arduinoAPI.h")
+  cmake_path(GET PRJ_ROOT PARENT_PATH arduinoCore_API)
+  cmake_path(APPEND arduinoCore_API "${arduinoCore_API}" "ArduinoCore-API/api")
 
   #set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../ArduinoCore-API/api )
   #include_directories(../ArduinoCore-API/api)
