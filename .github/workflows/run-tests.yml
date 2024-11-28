@@ -81,8 +81,6 @@ jobs:
       - name: List files in core
         run: tree ./
 
-
-  steps:
       - name: Build tests
         shell: bash
         run: |
@@ -93,7 +91,7 @@ jobs:
           make --directory="${{ inputs.build-path }}"
           echo "::endgroup::"
           
-      - name: List files in core
+      - name: List files in extras
         run: tree ./extras/
 
       - name: Save memory usage change report as artifact
