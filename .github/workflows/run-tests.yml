@@ -118,11 +118,11 @@ jobs:
       - name: Run tests
         shell: bash
         run: |
-          if [[ -n "${{ inputs.runtime-path }}" ]]; then
+          if [[ -n "test/bin" ]]; then
             echo "::warning::The runtime-path input is deprecated. Please use runtime-paths instead."
-            RUNTIME_PATHS="- ${{ inputs.runtime-path }}"
+            RUNTIME_PATHS="- test/bin"
           else
-            RUNTIME_PATHS="${{ inputs.runtime-paths }}"
+            RUNTIME_PATHS="test/bin"
           fi
   
           EXIT_STATUS=0
