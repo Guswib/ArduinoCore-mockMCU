@@ -25,10 +25,13 @@ message("Arduino Core:   ${arduinoCore}")
 
 include_directories(${arduinoCore}) #Path tho arduino-core
 cmake_path(APPEND arduinoCore_API "${PRJ_ROOT}" "cores/arduino/api")
+if(IS_SYMLINK ${arduinoCore_API})
+  message("---path to API is a symlink")
+endif()
 
 #set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../cores/arduino/api )
 
-if(NOT EXISTS "${arduinoCore_API}/arduinoAPI.h")
+if(NOT EXISTS "${arduinoCore_API}/ArduinoAPI.h")
   cmake_path(GET PRJ_ROOT PARENT_PATH arduinoCore_API)
   cmake_path(APPEND arduinoCore_API "${arduinoCore_API}" "ArduinoCore-API/api")
 
