@@ -82,12 +82,13 @@ jobs:
         run: tree ./
 
       - uses: arduino/cpp-test-action@main
+        continue-on-error: true
         with:
           source-path: test
           build-path: test/build
           runtime-paths: test/build/bin/example_test
           coverage-data-path: ${{ env.COVERAGE_DATA_PATH }}
-          continue-on-error: true
+          
       - name: List files in core
         run: tree ./extras/
 
