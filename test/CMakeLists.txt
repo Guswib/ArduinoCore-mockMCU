@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: LGPL-2.1-or-later
 
+#Set up everuthing:
+# cmake -G "MinGW Makefiles"
 ##########################################################################
 
 cmake_minimum_required(VERSION 3.25)
@@ -26,7 +28,10 @@ cmake_path(APPEND arduinoCore_API "${PRJ_ROOT}" "cores/arduino/api")
 
 #set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../cores/arduino/api )
 
-if(NOT IS_DIRECTORY ${arduinoCore_API})
+if(NOT EXISTS "${arduinoCore_API}/arduino-api.h")
+  cmake_path(GET PRJ_ROOT PARENT_PATH arduinoCore_API)
+  cmake_path(APPEND arduinoCore_API "${arduinoCore_API}" "ArduinoCore-API/api")
+
   #set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../ArduinoCore-API/api )
   #include_directories(../ArduinoCore-API/api)
 endif()
@@ -115,7 +120,9 @@ add_compile_options(-Wno-cast-function-type)
 add_compile_options(-ftest-coverage) 
 
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} --coverage")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -Wno-deprecated-copy -fprofile-arcs")
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -Wno-deprecated-copy -fprofile-arcs")
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
 
 ##########################################################################
 

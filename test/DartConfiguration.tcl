@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: C:/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test
-BuildDirectory: C:/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test
+SourceDirectory: C:/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test
+BuildDirectory: C:/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: arenz-wks-13
+Site: DESKTOP-MP5SMMV
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Win32-mingw32-make
@@ -27,7 +27,7 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test"
+ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test"
 MakeCommand: C:/Program\ Files/CMake/bin/cmake.exe --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
@@ -63,8 +63,8 @@ UpdateOptions:
 UpdateType: 
 
 # Compiler info
-Compiler: C:/msys64/mingw64/bin/c++.exe
-CompilerVersion: 12.2.0
+Compiler: C:/msys64/ucrt64/bin/c++.exe
+CompilerVersion: 13.2.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
@@ -81,7 +81,7 @@ MemoryCheckCommandOptions:
 MemoryCheckSuppressionFile: 
 
 # Coverage
-CoverageCommand: C:/msys64/mingw64/bin/gcov.exe
+CoverageCommand: C:/msys64/ucrt64/bin/gcov.exe
 CoverageExtraFlags: -l
 
 # Testing options

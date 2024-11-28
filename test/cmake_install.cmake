@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test
+# Install script for directory: C:/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/exmaple_test")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/example_test")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,13 +34,13 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/msys64/mingw64/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/msys64/ucrt64/bin/objdump.exe")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test/install_local_manifest.txt"
+  file(WRITE "C:/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -56,6 +56,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

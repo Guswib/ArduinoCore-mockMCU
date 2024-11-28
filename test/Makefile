@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\gustav.wiberg\Documents\GitHub\Arduino\ArduinoCore-mockMCU\test
+CMAKE_SOURCE_DIR = C:\Users\gusta\Documents\GitHub\Arduino\ArduinoCore-mockMCU\test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\gustav.wiberg\Documents\GitHub\Arduino\ArduinoCore-mockMCU\test
+CMAKE_BINARY_DIR = C:\Users\gusta\Documents\GitHub\Arduino\ArduinoCore-mockMCU\test
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -96,9 +96,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\gustav.wiberg\Documents\GitHub\Arduino\ArduinoCore-mockMCU\test\CMakeFiles C:\Users\gustav.wiberg\Documents\GitHub\Arduino\ArduinoCore-mockMCU\test\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\gusta\Documents\GitHub\Arduino\ArduinoCore-mockMCU\test\CMakeFiles C:\Users\gusta\Documents\GitHub\Arduino\ArduinoCore-mockMCU\test\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\gustav.wiberg\Documents\GitHub\Arduino\ArduinoCore-mockMCU\test\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\gusta\Documents\GitHub\Arduino\ArduinoCore-mockMCU\test\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -490,312 +490,312 @@ ContinuousSubmit/fast:
 .PHONY : ContinuousSubmit/fast
 
 #=============================================================================
-# Target rules for targets named exmaple_test
+# Target rules for targets named example_test
 
 # Build rule for target.
-exmaple_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 exmaple_test
-.PHONY : exmaple_test
+example_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 example_test
+.PHONY : example_test
 
 # fast build rule for target.
-exmaple_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/build
-.PHONY : exmaple_test/fast
+example_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/build
+.PHONY : example_test/fast
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.obj
-
-# target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.obj
-
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.i
-
-# target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.i
-
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.s
-
-# target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.s
-
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.obj
 
 # target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.obj
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.i
 
 # target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.i
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.s
 
 # target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.cpp.s
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.obj
 
 # target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.obj
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.i
 
 # target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.i
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.s
 
 # target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.cpp.s
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.obj
 
 # target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.obj
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.i
 
 # target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.i
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.s
 
 # target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.cpp.s
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.obj
 
 # target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.obj
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.i
 
 # target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.i
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.s
 
 # target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.cpp.s
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.obj
 
 # target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.obj
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.i
 
 # target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.i
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.s
 
 # target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.cpp.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.cpp.s
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.obj
 
 # target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.obj
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.i
 
 # target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.i
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.s
 
 # target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.cpp.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.cpp.s
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.obj
 
 # target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.obj
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.i
 
 # target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.i
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.s
 
 # target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.cpp.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.cpp.s
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.obj
 
 # target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.obj
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.i
 
 # target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.i
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.s
 
 # target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.cpp.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.cpp.s
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.obj
 
 # target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.obj
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.i
 
 # target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.i
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.s
 
 # target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.cpp.s
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.obj
 
 # target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.obj
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.i
 
 # target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.i
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.s
 
 # target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.cpp.s
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.obj: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.obj
 
 # target to build an object file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.obj
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.i: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.i
 
 # target to preprocess a source file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.i
 
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.s: C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.s
 
 # target to generate assembly for a file
-C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s
-.PHONY : C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.cpp.s
+
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.obj: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.obj
+
+# target to build an object file
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.obj
+
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.i: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.i
+
+# target to preprocess a source file
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.i
+
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.s: C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.s
+
+# target to generate assembly for a file
+C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s
+.PHONY : C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.cpp.s
 
 src/MillisFake.obj: src/MillisFake.cpp.obj
 .PHONY : src/MillisFake.obj
 
 # target to build an object file
 src/MillisFake.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/MillisFake.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/MillisFake.cpp.obj
 .PHONY : src/MillisFake.cpp.obj
 
 src/MillisFake.i: src/MillisFake.cpp.i
@@ -803,7 +803,7 @@ src/MillisFake.i: src/MillisFake.cpp.i
 
 # target to preprocess a source file
 src/MillisFake.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/MillisFake.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/MillisFake.cpp.i
 .PHONY : src/MillisFake.cpp.i
 
 src/MillisFake.s: src/MillisFake.cpp.s
@@ -811,7 +811,7 @@ src/MillisFake.s: src/MillisFake.cpp.s
 
 # target to generate assembly for a file
 src/MillisFake.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/MillisFake.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/MillisFake.cpp.s
 .PHONY : src/MillisFake.cpp.s
 
 src/PrintMock.obj: src/PrintMock.cpp.obj
@@ -819,7 +819,7 @@ src/PrintMock.obj: src/PrintMock.cpp.obj
 
 # target to build an object file
 src/PrintMock.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/PrintMock.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/PrintMock.cpp.obj
 .PHONY : src/PrintMock.cpp.obj
 
 src/PrintMock.i: src/PrintMock.cpp.i
@@ -827,7 +827,7 @@ src/PrintMock.i: src/PrintMock.cpp.i
 
 # target to preprocess a source file
 src/PrintMock.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/PrintMock.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/PrintMock.cpp.i
 .PHONY : src/PrintMock.cpp.i
 
 src/PrintMock.s: src/PrintMock.cpp.s
@@ -835,7 +835,7 @@ src/PrintMock.s: src/PrintMock.cpp.s
 
 # target to generate assembly for a file
 src/PrintMock.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/PrintMock.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/PrintMock.cpp.s
 .PHONY : src/PrintMock.cpp.s
 
 src/Serial/test_Serial.obj: src/Serial/test_Serial.cpp.obj
@@ -843,7 +843,7 @@ src/Serial/test_Serial.obj: src/Serial/test_Serial.cpp.obj
 
 # target to build an object file
 src/Serial/test_Serial.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Serial/test_Serial.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Serial/test_Serial.cpp.obj
 .PHONY : src/Serial/test_Serial.cpp.obj
 
 src/Serial/test_Serial.i: src/Serial/test_Serial.cpp.i
@@ -851,7 +851,7 @@ src/Serial/test_Serial.i: src/Serial/test_Serial.cpp.i
 
 # target to preprocess a source file
 src/Serial/test_Serial.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Serial/test_Serial.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Serial/test_Serial.cpp.i
 .PHONY : src/Serial/test_Serial.cpp.i
 
 src/Serial/test_Serial.s: src/Serial/test_Serial.cpp.s
@@ -859,7 +859,7 @@ src/Serial/test_Serial.s: src/Serial/test_Serial.cpp.s
 
 # target to generate assembly for a file
 src/Serial/test_Serial.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Serial/test_Serial.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Serial/test_Serial.cpp.s
 .PHONY : src/Serial/test_Serial.cpp.s
 
 src/Stream/test_find.obj: src/Stream/test_find.cpp.obj
@@ -867,7 +867,7 @@ src/Stream/test_find.obj: src/Stream/test_find.cpp.obj
 
 # target to build an object file
 src/Stream/test_find.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_find.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_find.cpp.obj
 .PHONY : src/Stream/test_find.cpp.obj
 
 src/Stream/test_find.i: src/Stream/test_find.cpp.i
@@ -875,7 +875,7 @@ src/Stream/test_find.i: src/Stream/test_find.cpp.i
 
 # target to preprocess a source file
 src/Stream/test_find.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_find.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_find.cpp.i
 .PHONY : src/Stream/test_find.cpp.i
 
 src/Stream/test_find.s: src/Stream/test_find.cpp.s
@@ -883,7 +883,7 @@ src/Stream/test_find.s: src/Stream/test_find.cpp.s
 
 # target to generate assembly for a file
 src/Stream/test_find.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_find.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_find.cpp.s
 .PHONY : src/Stream/test_find.cpp.s
 
 src/Stream/test_findUntil.obj: src/Stream/test_findUntil.cpp.obj
@@ -891,7 +891,7 @@ src/Stream/test_findUntil.obj: src/Stream/test_findUntil.cpp.obj
 
 # target to build an object file
 src/Stream/test_findUntil.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_findUntil.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_findUntil.cpp.obj
 .PHONY : src/Stream/test_findUntil.cpp.obj
 
 src/Stream/test_findUntil.i: src/Stream/test_findUntil.cpp.i
@@ -899,7 +899,7 @@ src/Stream/test_findUntil.i: src/Stream/test_findUntil.cpp.i
 
 # target to preprocess a source file
 src/Stream/test_findUntil.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_findUntil.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_findUntil.cpp.i
 .PHONY : src/Stream/test_findUntil.cpp.i
 
 src/Stream/test_findUntil.s: src/Stream/test_findUntil.cpp.s
@@ -907,7 +907,7 @@ src/Stream/test_findUntil.s: src/Stream/test_findUntil.cpp.s
 
 # target to generate assembly for a file
 src/Stream/test_findUntil.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_findUntil.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_findUntil.cpp.s
 .PHONY : src/Stream/test_findUntil.cpp.s
 
 src/Stream/test_getTimeout.obj: src/Stream/test_getTimeout.cpp.obj
@@ -915,7 +915,7 @@ src/Stream/test_getTimeout.obj: src/Stream/test_getTimeout.cpp.obj
 
 # target to build an object file
 src/Stream/test_getTimeout.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_getTimeout.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_getTimeout.cpp.obj
 .PHONY : src/Stream/test_getTimeout.cpp.obj
 
 src/Stream/test_getTimeout.i: src/Stream/test_getTimeout.cpp.i
@@ -923,7 +923,7 @@ src/Stream/test_getTimeout.i: src/Stream/test_getTimeout.cpp.i
 
 # target to preprocess a source file
 src/Stream/test_getTimeout.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_getTimeout.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_getTimeout.cpp.i
 .PHONY : src/Stream/test_getTimeout.cpp.i
 
 src/Stream/test_getTimeout.s: src/Stream/test_getTimeout.cpp.s
@@ -931,7 +931,7 @@ src/Stream/test_getTimeout.s: src/Stream/test_getTimeout.cpp.s
 
 # target to generate assembly for a file
 src/Stream/test_getTimeout.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_getTimeout.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_getTimeout.cpp.s
 .PHONY : src/Stream/test_getTimeout.cpp.s
 
 src/Stream/test_parseFloat.obj: src/Stream/test_parseFloat.cpp.obj
@@ -939,7 +939,7 @@ src/Stream/test_parseFloat.obj: src/Stream/test_parseFloat.cpp.obj
 
 # target to build an object file
 src/Stream/test_parseFloat.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_parseFloat.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_parseFloat.cpp.obj
 .PHONY : src/Stream/test_parseFloat.cpp.obj
 
 src/Stream/test_parseFloat.i: src/Stream/test_parseFloat.cpp.i
@@ -947,7 +947,7 @@ src/Stream/test_parseFloat.i: src/Stream/test_parseFloat.cpp.i
 
 # target to preprocess a source file
 src/Stream/test_parseFloat.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_parseFloat.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_parseFloat.cpp.i
 .PHONY : src/Stream/test_parseFloat.cpp.i
 
 src/Stream/test_parseFloat.s: src/Stream/test_parseFloat.cpp.s
@@ -955,7 +955,7 @@ src/Stream/test_parseFloat.s: src/Stream/test_parseFloat.cpp.s
 
 # target to generate assembly for a file
 src/Stream/test_parseFloat.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_parseFloat.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_parseFloat.cpp.s
 .PHONY : src/Stream/test_parseFloat.cpp.s
 
 src/Stream/test_parseInt.obj: src/Stream/test_parseInt.cpp.obj
@@ -963,7 +963,7 @@ src/Stream/test_parseInt.obj: src/Stream/test_parseInt.cpp.obj
 
 # target to build an object file
 src/Stream/test_parseInt.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_parseInt.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_parseInt.cpp.obj
 .PHONY : src/Stream/test_parseInt.cpp.obj
 
 src/Stream/test_parseInt.i: src/Stream/test_parseInt.cpp.i
@@ -971,7 +971,7 @@ src/Stream/test_parseInt.i: src/Stream/test_parseInt.cpp.i
 
 # target to preprocess a source file
 src/Stream/test_parseInt.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_parseInt.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_parseInt.cpp.i
 .PHONY : src/Stream/test_parseInt.cpp.i
 
 src/Stream/test_parseInt.s: src/Stream/test_parseInt.cpp.s
@@ -979,7 +979,7 @@ src/Stream/test_parseInt.s: src/Stream/test_parseInt.cpp.s
 
 # target to generate assembly for a file
 src/Stream/test_parseInt.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_parseInt.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_parseInt.cpp.s
 .PHONY : src/Stream/test_parseInt.cpp.s
 
 src/Stream/test_readBytes.obj: src/Stream/test_readBytes.cpp.obj
@@ -987,7 +987,7 @@ src/Stream/test_readBytes.obj: src/Stream/test_readBytes.cpp.obj
 
 # target to build an object file
 src/Stream/test_readBytes.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readBytes.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readBytes.cpp.obj
 .PHONY : src/Stream/test_readBytes.cpp.obj
 
 src/Stream/test_readBytes.i: src/Stream/test_readBytes.cpp.i
@@ -995,7 +995,7 @@ src/Stream/test_readBytes.i: src/Stream/test_readBytes.cpp.i
 
 # target to preprocess a source file
 src/Stream/test_readBytes.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readBytes.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readBytes.cpp.i
 .PHONY : src/Stream/test_readBytes.cpp.i
 
 src/Stream/test_readBytes.s: src/Stream/test_readBytes.cpp.s
@@ -1003,7 +1003,7 @@ src/Stream/test_readBytes.s: src/Stream/test_readBytes.cpp.s
 
 # target to generate assembly for a file
 src/Stream/test_readBytes.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readBytes.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readBytes.cpp.s
 .PHONY : src/Stream/test_readBytes.cpp.s
 
 src/Stream/test_readBytesUntil.obj: src/Stream/test_readBytesUntil.cpp.obj
@@ -1011,7 +1011,7 @@ src/Stream/test_readBytesUntil.obj: src/Stream/test_readBytesUntil.cpp.obj
 
 # target to build an object file
 src/Stream/test_readBytesUntil.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readBytesUntil.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readBytesUntil.cpp.obj
 .PHONY : src/Stream/test_readBytesUntil.cpp.obj
 
 src/Stream/test_readBytesUntil.i: src/Stream/test_readBytesUntil.cpp.i
@@ -1019,7 +1019,7 @@ src/Stream/test_readBytesUntil.i: src/Stream/test_readBytesUntil.cpp.i
 
 # target to preprocess a source file
 src/Stream/test_readBytesUntil.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readBytesUntil.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readBytesUntil.cpp.i
 .PHONY : src/Stream/test_readBytesUntil.cpp.i
 
 src/Stream/test_readBytesUntil.s: src/Stream/test_readBytesUntil.cpp.s
@@ -1027,7 +1027,7 @@ src/Stream/test_readBytesUntil.s: src/Stream/test_readBytesUntil.cpp.s
 
 # target to generate assembly for a file
 src/Stream/test_readBytesUntil.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readBytesUntil.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readBytesUntil.cpp.s
 .PHONY : src/Stream/test_readBytesUntil.cpp.s
 
 src/Stream/test_readString.obj: src/Stream/test_readString.cpp.obj
@@ -1035,7 +1035,7 @@ src/Stream/test_readString.obj: src/Stream/test_readString.cpp.obj
 
 # target to build an object file
 src/Stream/test_readString.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readString.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readString.cpp.obj
 .PHONY : src/Stream/test_readString.cpp.obj
 
 src/Stream/test_readString.i: src/Stream/test_readString.cpp.i
@@ -1043,7 +1043,7 @@ src/Stream/test_readString.i: src/Stream/test_readString.cpp.i
 
 # target to preprocess a source file
 src/Stream/test_readString.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readString.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readString.cpp.i
 .PHONY : src/Stream/test_readString.cpp.i
 
 src/Stream/test_readString.s: src/Stream/test_readString.cpp.s
@@ -1051,7 +1051,7 @@ src/Stream/test_readString.s: src/Stream/test_readString.cpp.s
 
 # target to generate assembly for a file
 src/Stream/test_readString.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readString.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readString.cpp.s
 .PHONY : src/Stream/test_readString.cpp.s
 
 src/Stream/test_readStringUntil.obj: src/Stream/test_readStringUntil.cpp.obj
@@ -1059,7 +1059,7 @@ src/Stream/test_readStringUntil.obj: src/Stream/test_readStringUntil.cpp.obj
 
 # target to build an object file
 src/Stream/test_readStringUntil.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readStringUntil.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readStringUntil.cpp.obj
 .PHONY : src/Stream/test_readStringUntil.cpp.obj
 
 src/Stream/test_readStringUntil.i: src/Stream/test_readStringUntil.cpp.i
@@ -1067,7 +1067,7 @@ src/Stream/test_readStringUntil.i: src/Stream/test_readStringUntil.cpp.i
 
 # target to preprocess a source file
 src/Stream/test_readStringUntil.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readStringUntil.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readStringUntil.cpp.i
 .PHONY : src/Stream/test_readStringUntil.cpp.i
 
 src/Stream/test_readStringUntil.s: src/Stream/test_readStringUntil.cpp.s
@@ -1075,7 +1075,7 @@ src/Stream/test_readStringUntil.s: src/Stream/test_readStringUntil.cpp.s
 
 # target to generate assembly for a file
 src/Stream/test_readStringUntil.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_readStringUntil.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_readStringUntil.cpp.s
 .PHONY : src/Stream/test_readStringUntil.cpp.s
 
 src/Stream/test_setTimeout.obj: src/Stream/test_setTimeout.cpp.obj
@@ -1083,7 +1083,7 @@ src/Stream/test_setTimeout.obj: src/Stream/test_setTimeout.cpp.obj
 
 # target to build an object file
 src/Stream/test_setTimeout.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_setTimeout.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_setTimeout.cpp.obj
 .PHONY : src/Stream/test_setTimeout.cpp.obj
 
 src/Stream/test_setTimeout.i: src/Stream/test_setTimeout.cpp.i
@@ -1091,7 +1091,7 @@ src/Stream/test_setTimeout.i: src/Stream/test_setTimeout.cpp.i
 
 # target to preprocess a source file
 src/Stream/test_setTimeout.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_setTimeout.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_setTimeout.cpp.i
 .PHONY : src/Stream/test_setTimeout.cpp.i
 
 src/Stream/test_setTimeout.s: src/Stream/test_setTimeout.cpp.s
@@ -1099,7 +1099,7 @@ src/Stream/test_setTimeout.s: src/Stream/test_setTimeout.cpp.s
 
 # target to generate assembly for a file
 src/Stream/test_setTimeout.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/Stream/test_setTimeout.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/Stream/test_setTimeout.cpp.s
 .PHONY : src/Stream/test_setTimeout.cpp.s
 
 src/StreamMock.obj: src/StreamMock.cpp.obj
@@ -1107,7 +1107,7 @@ src/StreamMock.obj: src/StreamMock.cpp.obj
 
 # target to build an object file
 src/StreamMock.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/StreamMock.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/StreamMock.cpp.obj
 .PHONY : src/StreamMock.cpp.obj
 
 src/StreamMock.i: src/StreamMock.cpp.i
@@ -1115,7 +1115,7 @@ src/StreamMock.i: src/StreamMock.cpp.i
 
 # target to preprocess a source file
 src/StreamMock.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/StreamMock.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/StreamMock.cpp.i
 .PHONY : src/StreamMock.cpp.i
 
 src/StreamMock.s: src/StreamMock.cpp.s
@@ -1123,7 +1123,7 @@ src/StreamMock.s: src/StreamMock.cpp.s
 
 # target to generate assembly for a file
 src/StreamMock.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/StreamMock.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/StreamMock.cpp.s
 .PHONY : src/StreamMock.cpp.s
 
 src/main.obj: src/main.cpp.obj
@@ -1131,7 +1131,7 @@ src/main.obj: src/main.cpp.obj
 
 # target to build an object file
 src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/main.cpp.obj
 .PHONY : src/main.cpp.obj
 
 src/main.i: src/main.cpp.i
@@ -1139,7 +1139,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -1147,7 +1147,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\exmaple_test.dir\build.make CMakeFiles/exmaple_test.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\example_test.dir\build.make CMakeFiles/example_test.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -1187,43 +1187,43 @@ help:
 	@echo ... NightlySubmit
 	@echo ... NightlyTest
 	@echo ... NightlyUpdate
-	@echo ... exmaple_test
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.s
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.s
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.s
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.s
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.s
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Common.s
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Print.s
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/Stream.s
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/api/String.s
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.s
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.s
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.obj
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.i
-	@echo ... C_/Users/gustav.wiberg/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.s
+	@echo ... example_test
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Common.s
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Print.s
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/Stream.s
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-API/api/String.s
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART.s
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART0.s
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART1.s
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART2.s
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/UART3.s
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/dtostrf.s
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/cores/arduino/itoa.s
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.obj
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.i
+	@echo ... C_/Users/gusta/Documents/GitHub/Arduino/ArduinoCore-mockMCU/variants/mock_v1/variant.s
 	@echo ... src/MillisFake.obj
 	@echo ... src/MillisFake.i
 	@echo ... src/MillisFake.s

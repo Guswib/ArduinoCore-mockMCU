@@ -39,5 +39,9 @@ test/bin
 build
 build/.cmake
 test/DartConfiguration.tcl
-test/CTestTestfile.cmake
+test/*.cmake
+test/*.tlc
+
+test/Makefile
+
 *.cmake
