@@ -30,6 +30,7 @@ jobs:
 
     env:
       # sketch paths to compile (recursive) for all boards 
+      SKETCHES_REPORTS_PATH: sketches-reports
       UNIVERSAL_SKETCH_PATHS: |
         - libraries/AnalogWave
         # - libraries/Arduino_CAN/examples/CANRead
@@ -41,7 +42,7 @@ jobs:
         # - libraries/RTC/examples/Test_RTC
         - libraries/SoftwareSerial
         # - libraries/WDT
-       SKETCHES_REPORTS_PATH: sketches-reports
+
     strategy:
       fail-fast: false
 
