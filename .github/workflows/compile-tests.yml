@@ -85,7 +85,7 @@ jobs:
           source-path: test
           build-path: test/build
           runtime-paths: test/build/bin/example_test
-  
+          coverage-data-path: ${{ env.COVERAGE_DATA_PATH }}
 
       - name: Save memory usage change report as artifact
         uses: actions/upload-artifact@v3
