@@ -84,11 +84,11 @@ jobs:
       - name: Build tests
         shell: bash
         run: |
-          echo "::group::Run CMake on ${{ inputs.source-path }}"
-          cmake -S "${{ inputs.source-path }}" -B "${{ inputs.build-path }}"
+          echo "::group::Run CMake on /test"
+          cmake -S "test" -B "test/build"
           echo "::endgroup::"
-          echo "::group::Run Make on ${{ inputs.build-path }}"
-          make --directory="${{ inputs.build-path }}"
+          echo "::group::Run Make on /test/build"
+          make --directory="test/build"
           echo "::endgroup::"
           
       - name: List files in extras
