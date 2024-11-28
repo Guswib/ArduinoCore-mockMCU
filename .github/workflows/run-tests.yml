@@ -1,1 +1,103 @@
+name: Run Tests
 
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/run-tests.yml"
+      - "cores/**"
+      - "extras/**"
+      - "libraries/**"
+      - "variants/**"
+      - "boards.txt"
+      - "platform.txt"
+      - "test/src/**"
+  push:
+    paths:
+      - ".github/workflows/run-tests.yml"
+      - "cores/**"
+      - "extras/**"
+      - "libraries/**"
+      - "variants/**"
+      - "boards.txt"
+      - "platform.txt"
+      - "test/src/**"
+      - "test/*"
+
+jobs:
+  compile-test:
+    runs-on: ubuntu-latest
+    permissions: {}
+
+    env:
+      # sketch paths to compile (recursive) for all boards 
+      SKETCHES_REPORTS_PATH: sketches-reports
+      COVERAGE_DATA_PATH: extras/coverage-data/coverage.info
+      UNIVERSAL_SKETCH_PATHS: |
+        - libraries/AnalogWave
+        # - libraries/Arduino_CAN/examples/CANRead
+        # - libraries/Arduino_CAN/examples/CANWrite
+        # - libraries/Arduino_FreeRTOS
+        - libraries/EEPROM
+        # - libraries/RTC/examples/RTC_AutomaticExample
+        # - libraries/RTC/examples/RTC_PeriodicExample
+        # - libraries/RTC/examples/Test_RTC
+        - libraries/SoftwareSerial
+        # - libraries/WDT
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        board: [
+          {"fqbn": "arduino-git:mock:mock_v1"},
+        ]
+
+        # make board type-specific customizations to the matrix jobs
+        include:
+          - board:
+              fqbn: "arduino-git:mock:mock_v1"
+            
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+
+      # The source files are in a subfolder of the ArduinoCore-API repository, so it's not possible to clone it directly to the final destination in the core
+      - name: Checkout ArduinoCore-API
+        uses: actions/checkout@v3
+        with:
+          repository: arduino/ArduinoCore-API
+          path: extras/ArduinoCore-API
+
+      - name: Check if API should be compiled in the core
+        id: checkapi
+        run: |
+          if [[ $(grep -r api platform.txt) ]]; then echo "::set-output name=IS_API::true"; fi
+      - name: Install ArduinoCore-API
+        run: rm "$GITHUB_WORKSPACE/cores/arduino/api" && mv "$GITHUB_WORKSPACE/extras/ArduinoCore-API/api" "$GITHUB_WORKSPACE/cores/arduino"
+        # run: mv "$GITHUB_WORKSPACE/extras/ArduinoCore-API/api" "$GITHUB_WORKSPACE/cores/arduino"
+        if: steps.checkapi.outputs.IS_API == 'true'
+
+      - name: List files in core
+        run: tree ./
+
+
+  steps:
+      - name: Build tests
+        shell: bash
+        run: |
+          echo "::group::Run CMake on ${{ inputs.source-path }}"
+          cmake -S "${{ inputs.source-path }}" -B "${{ inputs.build-path }}"
+          echo "::endgroup::"
+          echo "::group::Run Make on ${{ inputs.build-path }}"
+          make --directory="${{ inputs.build-path }}"
+          echo "::endgroup::"
+          
+      - name: List files in core
+        run: tree ./extras/
+
+      - name: Save memory usage change report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: sketches-reports
+          path: sketches-reports
