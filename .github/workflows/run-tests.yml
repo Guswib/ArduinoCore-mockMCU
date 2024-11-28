@@ -95,7 +95,7 @@ jobs:
         run: tree ./extras/
 
       - name: List files in test/build
-        run: tree ./test/build
+        run: tree ./test/
 
       - name: Install yq
         shell: bash
@@ -115,7 +115,7 @@ jobs:
       - name: Run tests
         shell: bash
         run: |
-          if [[ -n "test/build/example_test.exe" ]]; then
+          if [[ -n "test/bin/example_test" ]]; then
             echo "::warning::The runtime-path input is deprecated. Please use runtime-paths instead."
             RUNTIME_PATHS="- test/build/example_test.exe"
           else
