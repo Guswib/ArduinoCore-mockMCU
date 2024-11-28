@@ -1,9 +1,9 @@
-name: Compile Tests
+name: Run Tests
 
 on:
   pull_request:
     paths:
-      - ".github/workflows/compile-tests.yml"
+      - ".github/workflows/run-tests.yml"
       - "cores/**"
       - "extras/**"
       - "libraries/**"
@@ -13,7 +13,7 @@ on:
       - "test/src/**"
   push:
     paths:
-      - ".github/workflows/compile-tests.yml"
+      - ".github/workflows/run-tests.yml"
       - "cores/**"
       - "extras/**"
       - "libraries/**"
@@ -81,19 +81,55 @@ jobs:
       - name: List files in core
         run: tree ./
 
-      - uses: arduino/cpp-test-action@main
-        continue-on-error: true
-        with:
-          source-path: test
-          build-path: test/build
-          runtime-paths: test/build/bin/example_test
-          coverage-data-path: ${{ env.COVERAGE_DATA_PATH }}
+      - name: Build tests
+        shell: bash
+        run: |
+          echo "::group::Run CMake on /test"
+          cmake -S "test" -B "test/build"
+          echo "::endgroup::"
+          echo "::group::Run Make on /test/build"
+          make --directory="test/build"
+          echo "::endgroup::"
           
-      - name: List files in core
+      - name: List files in extras
         run: tree ./extras/
 
-      - name: Save memory usage change report as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: sketches-reports
-          path: sketches-reports
+      - name: List files in test/build
+        run: tree ./test/
+
+      - name: Install yq
+        shell: bash
+        run: |
+          sudo snap install yq > /dev/null
+  
+      - name: Update APT package lists
+        shell: bash
+        run: |
+          sudo apt-get update > /dev/null
+  
+      - name: Install Valgrind
+        shell: bash
+        run: |
+          sudo apt-get --assume-yes install valgrind > /dev/null
+  
+      - name: Run tests
+        shell: bash
+        run: |
+          if [[ -n "test/bin/example_test" ]]; then
+            echo "::warning::The runtime-path input is deprecated. Please use runtime-paths instead."
+            RUNTIME_PATHS="- test/build/bin/example_test"
+          else
+            RUNTIME_PATHS="test/build/bin/example_test"
+          fi
+  
+          EXIT_STATUS=0
+          set +o errexit
+          while IFS='' read -r runtimePath && [[ -n "$runtimePath" ]]; do
+            echo "::group::Run $runtimePath with Valgrind"
+            if ! valgrind --tool=memcheck --leak-check=yes --error-exitcode=1 "$runtimePath"; then
+              EXIT_STATUS=1
+              echo "::error file=$runtimePath::While running $runtimePath"
+            fi
+            echo "::endgroup::"
+          done <<<"$(echo "$RUNTIME_PATHS" | yq eval '.[]' -)"
+          exit $EXIT_STATUS
