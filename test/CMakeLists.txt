@@ -114,7 +114,7 @@ add_compile_options(-Wno-cast-function-type)
 #add_compile_options(-Werror=unused-parameter)
 
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} --coverage")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -Wno-deprecated-copy")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -Wno-deprecated-copy -fprofile-arcs")
 
 ##########################################################################
 
