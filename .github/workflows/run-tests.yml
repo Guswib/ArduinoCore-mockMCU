@@ -100,39 +100,39 @@ jobs:
           name: sketches-reports
           path: sketches-reports
 
-    - name: Install yq
-      shell: bash
-      run: |
-        sudo snap install yq > /dev/null
-
-    - name: Update APT package lists
-      shell: bash
-      run: |
-        sudo apt-get update > /dev/null
-
-    - name: Install Valgrind
-      shell: bash
-      run: |
-        sudo apt-get --assume-yes install valgrind > /dev/null
-
-    - name: Run tests
-      shell: bash
-      run: |
-        if [[ -n "${{ inputs.runtime-path }}" ]]; then
-          echo "::warning::The runtime-path input is deprecated. Please use runtime-paths instead."
-          RUNTIME_PATHS="- ${{ inputs.runtime-path }}"
-        else
-          RUNTIME_PATHS="${{ inputs.runtime-paths }}"
-        fi
-
-        EXIT_STATUS=0
-        set +o errexit
-        while IFS='' read -r runtimePath && [[ -n "$runtimePath" ]]; do
-          echo "::group::Run $runtimePath with Valgrind"
-          if ! valgrind --tool=memcheck --leak-check=yes --error-exitcode=1 "$runtimePath"; then
-            EXIT_STATUS=1
-            echo "::error file=$runtimePath::While running $runtimePath"
+      - name: Install yq
+        shell: bash
+        run: |
+          sudo snap install yq > /dev/null
+  
+      - name: Update APT package lists
+        shell: bash
+        run: |
+          sudo apt-get update > /dev/null
+  
+      - name: Install Valgrind
+        shell: bash
+        run: |
+          sudo apt-get --assume-yes install valgrind > /dev/null
+  
+      - name: Run tests
+        shell: bash
+        run: |
+          if [[ -n "${{ inputs.runtime-path }}" ]]; then
+            echo "::warning::The runtime-path input is deprecated. Please use runtime-paths instead."
+            RUNTIME_PATHS="- ${{ inputs.runtime-path }}"
+          else
+            RUNTIME_PATHS="${{ inputs.runtime-paths }}"
           fi
-          echo "::endgroup::"
-        done <<<"$(echo "$RUNTIME_PATHS" | yq eval '.[]' -)"
-        exit $EXIT_STATUS
+  
+          EXIT_STATUS=0
+          set +o errexit
+          while IFS='' read -r runtimePath && [[ -n "$runtimePath" ]]; do
+            echo "::group::Run $runtimePath with Valgrind"
+            if ! valgrind --tool=memcheck --leak-check=yes --error-exitcode=1 "$runtimePath"; then
+              EXIT_STATUS=1
+              echo "::error file=$runtimePath::While running $runtimePath"
+            fi
+            echo "::endgroup::"
+          done <<<"$(echo "$RUNTIME_PATHS" | yq eval '.[]' -)"
+          exit $EXIT_STATUS
