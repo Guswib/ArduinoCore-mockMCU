@@ -41,6 +41,7 @@ jobs:
         # - libraries/RTC/examples/Test_RTC
         - libraries/SoftwareSerial
         # - libraries/WDT
+       SKETCHES_REPORTS_PATH: sketches-reports
     strategy:
       fail-fast: false
 
