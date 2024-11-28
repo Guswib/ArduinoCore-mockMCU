@@ -31,7 +31,7 @@
 *.out
 *.app
 
-#cores/Arduino/api
+cores/arduino/api
 ArduinoCore-API
 CMakeCache.txt
 test/CMakeFiles
@@ -40,7 +40,7 @@ build
 build/.cmake
 test/DartConfiguration.tcl
 test/*.cmake
-test/*.tlc
+test/*.tcl
 
 test/Makefile
 
