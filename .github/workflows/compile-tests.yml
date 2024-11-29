@@ -90,8 +90,11 @@ jobs:
           runtime-paths: test/build/bin/example_test
           coverage-data-path: ${{ env.COVERAGE_DATA_PATH }}
           
-      - name: List files in core
+      - name: List files in extras
         run: tree ./extras/
+
+      - name: List files in test/bin
+        run: tree ./test/bin
 
       - name: Save memory usage change report as artifact
         uses: actions/upload-artifact@v3
