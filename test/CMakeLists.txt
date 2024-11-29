@@ -156,13 +156,13 @@ add_executable(
 
 
 ##########################################################################
-#target_link_libraries(${TEST_TARGET} PUBLIC Catch2::Catch2WithMain)
+#target_link_libraries(${TEST_TARGET} PUBLIC Catch2::Catch2)
 target_link_libraries(${TEST_TARGET} PUBLIC Catch2::Catch2)
 
-# find_package(Catch2 REQUIRED)
+# find_package(Catch REQUIRED)
 enable_testing()
 include(Catch)
 add_test(NAME MockV1testing COMMAND ${TEST_TARGET} )
-add_test(NAME catch_test COMMAND ${TEST_TARGET} --success)
+# add_test(NAME catch_test COMMAND ${TEST_TARGET} --success)
 
 catch_discover_tests(${TEST_TARGET})
