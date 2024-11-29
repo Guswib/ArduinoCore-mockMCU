@@ -17,11 +17,12 @@
  **************************************************************************************/
 #include <StreamMock.h>
 
-TEST_CASE ("Testing Serial", "[Serial-find-01]")
+
+TEST_CASE ("Testing SPI", "[SPI-begin-01]")
 {
   //Serial.begin(9600);
   StreamMock mock;
-  
+
   WHEN ("'target' is contained in stream")
   {
     mock << "This is a test string";

@@ -82,6 +82,7 @@ set(TEST_SRCS
   src/Stream/test_setTimeout.cpp
  
   src/Serial/test_Serial.cpp
+  src/SPI/test_SPI.cpp
    
 )
 

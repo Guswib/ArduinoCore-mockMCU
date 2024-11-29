@@ -89,8 +89,17 @@ jobs:
           cmake -S "test" -B "test/build"
           echo "::endgroup::"
           echo "::group::Run Make on /test/build"
-          make --directory="test/build"
+          # make --directory="test/build"
+          cmake --build "test/build"
           echo "::endgroup::"
+
+      - name: Run tests
+          shell: bash
+          run: |
+            echo "::group::Run CMake on /test"
+            cd "test/build"
+            ctest
+            echo "::endgroup::"
           
       - name: List files in extras
         run: tree ./extras/

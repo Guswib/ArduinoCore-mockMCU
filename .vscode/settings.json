@@ -15,5 +15,6 @@
             "inheritDefault": "visible"
         }
     },
-    "cmake.sourceDirectory": "${env:USERPROFILE}/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test"
+    "cmake.sourceDirectory": "${env:USERPROFILE}/Documents/GitHub/Arduino/ArduinoCore-mockMCU/test",
+    "cmake.buildDirectory": "${workspaceFolder}/build"
 }
