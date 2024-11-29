@@ -127,7 +127,7 @@ jobs:
         run: |
           echo "bakgrund"
           valgrind --tool=memcheck --leak-check=yes --error-exitcode=1 "test/build/bin/example_test"
-          done <<<"$(echo "test/build/bin/example_test" | yq eval '.[]' -)"
+          echo <<<"$(echo "test/build/bin/example_test" | yq eval '.[]' -)"
   
           EXIT_STATUS=0
           set +o errexit
@@ -138,5 +138,5 @@ jobs:
               echo "::error file=$runtimePath::While running $runtimePath"
             fi
             echo "::endgroup::"
-          done <<<"$(echo "$RUNTIME_PATHS" | yq eval '.[]' -)"
-          exit $EXIT_STATUS
+          # done <<<"$(echo "$RUNTIME_PATHS" | yq eval '.[]' -)"
+          # exit $EXIT_STATUS
