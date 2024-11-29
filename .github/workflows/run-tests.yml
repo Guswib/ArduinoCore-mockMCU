@@ -116,7 +116,7 @@ jobs:
       - name: Run tests
         shell: bash
         run: |
-          if [[ -n "test/bin/example_test" ]]; then
+          if [[ -n "test/build/bin/example_test" ]]; then
             echo "::warning::The runtime-path input is deprecated. Please use runtime-paths instead."
             RUNTIME_PATHS="- test/build/bin/example_test"
           else
