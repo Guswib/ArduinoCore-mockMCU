@@ -94,7 +94,7 @@ jobs:
         run: tree ./extras/
 
       - name: List files in test/bin
-        run: tree ./test/bin
+        run: tree ./test/build/
 
       - name: Save memory usage change report as artifact
         uses: actions/upload-artifact@v3
