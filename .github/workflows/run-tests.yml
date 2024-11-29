@@ -118,12 +118,7 @@ jobs:
         run: |
           echo "bakgrund"
           valgrind --tool=memcheck --leak-check=yes --error-exitcode=1 "test/build/bin/example_test"
-          if [[ -n "test/build/bin/example_test" ]]; then
-            echo "::warning::The runtime-path input is deprecated. Please use runtime-paths instead."
-            RUNTIME_PATHS="- test/build/bin/example_test"
-          else
-            RUNTIME_PATHS="test/build/bin/example_test"
-          fi
+          done <<<"$(echo "test/build/bin/example_test" | yq eval '.[]' -)"
   
           EXIT_STATUS=0
           set +o errexit
