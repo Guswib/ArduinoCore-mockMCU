@@ -93,7 +93,7 @@ jobs:
       - name: List files in extras
         run: tree ./extras/
 
-      - name: List files in test/bin
+      - name: List files in test/build
         run: tree ./test/build/
 
       - name: Save memory usage change report as artifact
