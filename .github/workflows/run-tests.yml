@@ -94,12 +94,12 @@ jobs:
           echo "::endgroup::"
 
       - name: Run tests
-          shell: bash
-          run: |
-            echo "::group::Run CMake on /test"
-            cd "test/build"
-            ctest
-            echo "::endgroup::"
+        shell: bash
+        run: |
+          echo "::group::Run CMake on /test"
+          cd "test/build"
+          ctest
+          echo "::endgroup::"
           
       - name: List files in extras
         run: tree ./extras/
