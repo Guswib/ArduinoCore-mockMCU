@@ -44,9 +44,10 @@ if(EXISTS ${arduinoCore_API})
 endif()
 message("Arduino_API at:      " ${arduinoCore_API} "       exists?" ${arduinoCore_API_exists})
 
+cmake_path(APPEND local_LIBS "${PRJ_ROOT}" "libraries")
 
-
-
+include_directories(${local_LIBS}/Wire) #Path tho arduino-core
+include_directories(${local_LIBS}/SPI) #Path tho arduino-core
 include_directories(../variants/mock_v1) #Path tho arduino-core
 
 include_directories(external/catch/v2.13.9/include)
@@ -83,6 +84,7 @@ set(TEST_SRCS
  
   src/Serial/test_Serial.cpp
   src/SPI/test_SPI.cpp
+  
    
 )
 
@@ -95,11 +97,16 @@ set(TEST_DUT_SRCS
   ${arduinoCore_API}/Print.cpp
   ${arduinoCore_API}/Common.cpp
 
+ 
   ${arduinoCore}/UART.cpp
   ${arduinoCore}/UART0.cpp
   ${arduinoCore}/UART1.cpp
   ${arduinoCore}/UART2.cpp
   ${arduinoCore}/UART3.cpp
+
+  ${local_LIBS}/SPI/SPI.cpp
+  ${local_LIBS}/Wire/Wire.cpp
+
   ../variants/mock_v1/variant.cpp
 )
 #message(${TEST_DUT_SRCS})

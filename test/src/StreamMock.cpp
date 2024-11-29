@@ -1,3 +1,4 @@
+//#pragma once
 /*
  * Copyright (c) 2020 Arduino.  All rights reserved.
  */
@@ -5,12 +6,18 @@
 /**************************************************************************************
  * INCLUDE
  **************************************************************************************/
-
+#include <stddef.h>
+#include <stdint.h>
+#include <string>
 #include <StreamMock.h>
-
+#include <iostream>
 /**************************************************************************************
  * PUBLIC MEMBER FUNCTIONS
  **************************************************************************************/
+  std::istream &in=std::cin;
+  std::ostream &out=std::cout;
+  //std::string buffered;
+
 
 void StreamMock::operator << (char const * str)
 {
@@ -21,6 +28,9 @@ void StreamMock::operator << (char const * str)
 size_t StreamMock::write(uint8_t ch)
 { 
   _stream.push_back(static_cast<char>(ch));
+  char tmp[1];
+  tmp[0]=ch;
+  out.write(tmp,1);
   return 1;
 }
 //GW ADDED

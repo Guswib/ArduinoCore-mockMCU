@@ -24,6 +24,8 @@
 #include <api/HardwareSPI.h>
 #include <api/Print.h>
 
+#include <deque>
+
 #ifndef USE_MALLOC_FOR_IRQ_MAP
 #define USE_MALLOC_FOR_IRQ_MAP  0
 #endif
@@ -43,8 +45,8 @@
 #define MISO 2
 #define SCK 1
 
-#define PIN_SPI_SCK 100
-#define PIN_SPI_SS SS
+//#define PIN_SPI_SCK 100
+//#define PIN_SPI_SS SS
 
 #define MUX_SPI 0
 
@@ -177,13 +179,18 @@ class SPIClassMOCK : public arduino::HardwareSPI {
   void setBitOrder(BitOrder order);
   void setDataMode(uint8_t uc_mode);
   void setClockDivider(uint8_t uc_div);
-
+  
+    int readStream();
+    int sizeStream();
+  std::deque<char> stream;
   private:
 
   void init();
   void config(SPISettingsMOCK settings);
   void config(SPISettings settings) {
     config(SPISettingsMOCK(settings));
+
+    
   }
 
   // These undocumented functions should not be used.  SPI.transfer()
@@ -211,7 +218,7 @@ class SPIClassMOCK : public arduino::HardwareSPI {
   };
 
 #define SPIClass SPIClassMOCK
-
+#define SPISettings SPISettingsMOCK
 #if SPI_HOWMANY > 0
   extern SPIClass SPI;
 #endif

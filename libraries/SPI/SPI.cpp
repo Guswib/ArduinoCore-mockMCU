@@ -27,11 +27,12 @@
 #define SPI_IMODE_EXTINT 1
 #define SPI_IMODE_GLOBAL 2
 
-#define PIN_SPI_MISO MISO
-#define PIN_SPI_MOSI MOSI
+//#define PIN_SPI_MISO MISO
+//#define PIN_SPI_MOSI MOSI
 
 
-SPIClass::SPIClass(uint8_t uc_pinMISO, uint8_t uc_pinSCK, uint8_t uc_pinMOSI, uint8_t uc_pinSS, uint8_t uc_mux)
+
+SPIClassMOCK::SPIClassMOCK(uint8_t uc_pinMISO, uint8_t uc_pinSCK, uint8_t uc_pinMOSI, uint8_t uc_pinSS, uint8_t uc_mux)
 {
   initialized = false;
 
@@ -43,7 +44,7 @@ SPIClass::SPIClass(uint8_t uc_pinMISO, uint8_t uc_pinSCK, uint8_t uc_pinMOSI, ui
   _uc_pinSS = uc_pinSS;
 }
 
-void SPIClass::begin()
+void SPIClassMOCK::begin()
 {
   init();
 
@@ -56,7 +57,7 @@ void SPIClass::begin()
   config(DEFAULT_SPI_SETTINGS);
 }
 
-void SPIClass::init()
+void SPIClassMOCK::init()
 {
   if (initialized)
     return;
@@ -68,71 +69,73 @@ void SPIClass::init()
   Serial.println("SPI.ini is called");
 }
 
-void SPIClass::config(SPISettingsMOCK settings)
+void SPIClassMOCK::config(SPISettingsMOCK settings)
 {
   //SPI0.CTRLA = settings.ctrla;
   //SPI0.CTRLB = settings.ctrlb;
 }
 
-void SPIClass::end()
+void SPIClassMOCK::end()
 {
   //SPI0.CTRLA &= ~(SPI_ENABLE_bm);
   initialized = false;
 }
 
-void SPIClass::usingInterrupt(int interruptNumber)
+void SPIClassMOCK::usingInterrupt(int interruptNumber)
 {
  ;
 }
 
-void SPIClass::notUsingInterrupt(int interruptNumber)
+void SPIClassMOCK::notUsingInterrupt(int interruptNumber)
 {
  ;
 }
 
-void SPIClass::detachMaskedInterrupts() {
+void SPIClassMOCK::detachMaskedInterrupts() {
  ;
  
 }
 
-void SPIClass::reattachMaskedInterrupts() {
+void SPIClassMOCK::reattachMaskedInterrupts() {
  ;
 }
 
-void SPIClass::beginTransaction(SPISettingsMOCK settings)
+void SPIClassMOCK::beginTransaction(SPISettingsMOCK settings)
 {
   Serial.print("SPI.beginTransaction: ");
   ;
 }
 
-void SPIClass::endTransaction(void)
+void SPIClassMOCK::endTransaction(void)
 {
   Serial.println("  --endTransaction");
 }
 
-void SPIClass::setBitOrder(BitOrder order)
+void SPIClassMOCK::setBitOrder(BitOrder order)
 {
  ;
 }
 
-void SPIClass::setDataMode(uint8_t mode)
+void SPIClassMOCK::setDataMode(uint8_t mode)
 {
     ;
 }
 
-void SPIClass::setClockDivider(uint8_t div)
+void SPIClassMOCK::setClockDivider(uint8_t div)
 {
  ;                                       // write value 
 }
 
-byte SPIClass::transfer(uint8_t data)
+byte SPIClassMOCK::transfer(uint8_t data)
 {
   Serial.print(" ");
   Serial.print(data,HEX);
+  if(stream.size() < stream.max_size())
+    stream.push_back(static_cast<char>(data));
   return data;                             // read data back
 }
 
-uint16_t SPIClass::transfer16(uint16_t data) {
+uint16_t SPIClassMOCK::transfer16(uint16_t data) {
   union { uint16_t val; struct { uint8_t lsb; uint8_t msb; }; } t;
 
   t.val = data;
@@ -141,13 +144,36 @@ uint16_t SPIClass::transfer16(uint16_t data) {
   return data;
 }
 
-void SPIClass::transfer(void *buf, size_t count)
+void SPIClassMOCK::transfer(void *buf, size_t count)
 {
-  for(size_t i=0;i<count,i++ ){
-    transfer( buf[i]);
+  if (NULL == buf) {
+        return;
+    }
+  uint8_t *buffer8 = (uint8_t *) buf;
+  for(size_t i=0;i<count;i++ ){
+    transfer( buffer8[i]);
     }
 }
 
-if SPI_HOWMANY > 0
-  SPIClass SPI (PIN_SPI_MISO,  PIN_SPI_SCK,  PIN_SPI_MOSI,  PIN_SPI_SS,  MUX_SPI);
+int SPIClassMOCK::sizeStream()
+{
+  return stream.size();
+}
+
+int SPIClassMOCK::readStream()
+{
+  if (stream.size() == 0)
+    return -1;
+
+  /* Extract first/oldest element. */
+  char const c = stream.at(0);
+  /* Erase first/oldest element. */
+  stream.pop_front();
+
+  return c;
+}
+
+#if SPI_HOWMANY > 0
+  SPIClass SPI (PIN_SPI_MISO,  PIN_SPI_SCK,  PIN_SPI_MOSI,  PIN_SPI_CS,  MUX_SPI);
 #endif
+

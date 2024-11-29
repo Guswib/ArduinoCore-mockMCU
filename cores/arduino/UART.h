@@ -174,7 +174,7 @@ class UartClass : public HardwareSerial
     inline size_t write(int n) { return write((uint8_t)n); };
     using Print::write; // pull in write(str) and write(buf, size) from Print
     explicit operator bool() { return true; }
-    bool operator! () { return true; };
+    bool operator! () { return false; };
 
 
     void bind(UartClass& ser) {bound = &ser; }
