@@ -82,5 +82,6 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp"
-    }
+    },
+    "cmake.default.generator": "MinGW Makefiles"
 }

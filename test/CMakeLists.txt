@@ -12,6 +12,9 @@ project(example_test LANGUAGES CXX)
 include (CTest)
 ##########################################################################
 
+set(MCU_VARIANT_PATH "" )
+set(LIB_MCU_VARIANT "" )
+
 cmake_path(GET PROJECT_SOURCE_DIR PARENT_PATH PRJ_ROOT)
 message("\n\n")
 message("PROJECT ROOT at:    " ${PRJ_ROOT})
@@ -44,10 +47,10 @@ if(EXISTS ${arduinoCore_API})
 endif()
 message("Arduino_API at:      " ${arduinoCore_API} "       exists?" ${arduinoCore_API_exists})
 
-cmake_path(APPEND local_LIBS "${PRJ_ROOT}" "libraries")
+cmake_path(APPEND arduinoCoreLib "${PRJ_ROOT}" "libraries")
 
-include_directories(${local_LIBS}/Wire) #Path tho arduino-core
-include_directories(${local_LIBS}/SPI) #Path tho arduino-core
+#include_directories(${arduinoCoreLib}/Wire) #Path tho arduino-core
+#include_directories(${arduinoCoreLib}/SPI) #Path tho arduino-core
 include_directories(../variants/mock_v1) #Path tho arduino-core
 
 include_directories(external/catch/v2.13.9/include)
@@ -57,8 +60,6 @@ include_directories(external/catch/v2.13.9/include)
 message("Included dir:  " ${INCLUDE_DIRECTORIES})
 ##########################################################################
 
-
-
 set(CMAKE_CXX_STANDARD 11)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -66,6 +67,17 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 ##########################################################################
 
 set(TEST_TARGET ${CMAKE_PROJECT_NAME})
+
+##########################################################################
+add_subdirectory("${PRJ_ROOT}/variants/mock_v1" "HW/variants/mock_v1")
+add_subdirectory("${PRJ_ROOT}/cores/arduino" "HW/core/arduino")
+add_subdirectory("${PRJ_ROOT}/libraries" "HW/libraries")
+
+get_target_property(LIB_HW_LIBS_INCLUDES LIB_HW_LIBS INCLUDE_DIRECTORIES)
+get_target_property(LIB_ARDUINO_CORE_INCLUDES LIB_ARDUINO_CORE INCLUDE_DIRECTORIES)
+##SELECT WHICH VARIANT TO USE:
+get_target_property(LIB_VARIANT_INCLUDES LIB_VARIANT_MOCK_V1 INCLUDE_DIRECTORIES)
+
 
 ##########################################################################
 
@@ -92,22 +104,22 @@ set(TEST_SRCS
 set(TEST_DUT_SRCS
    
   .
-  ${arduinoCore_API}/Stream.cpp
-  ${arduinoCore_API}/String.cpp
-  ${arduinoCore_API}/Print.cpp
-  ${arduinoCore_API}/Common.cpp
+  #${arduinoCore_API}/Stream.cpp
+  #${arduinoCore_API}/String.cpp
+  #${arduinoCore_API}/Print.cpp
+  #${arduinoCore_API}/Common.cpp
 
  
-  ${arduinoCore}/UART.cpp
-  ${arduinoCore}/UART0.cpp
-  ${arduinoCore}/UART1.cpp
-  ${arduinoCore}/UART2.cpp
-  ${arduinoCore}/UART3.cpp
+  #${arduinoCore}/UART.cpp
+  #${arduinoCore}/UART0.cpp
+  #${arduinoCore}/UART1.cpp
+  #${arduinoCore}/UART2.cpp
+  #${arduinoCore}/UART3.cpp
 
-  ${local_LIBS}/SPI/SPI.cpp
-  ${local_LIBS}/Wire/Wire.cpp
+  #${arduinoCoreLib}/SPI/SPI.cpp
+  #${arduinoCoreLib}/Wire/Wire.cpp
 
-  ../variants/mock_v1/variant.cpp
+  #../variants/mock_v1/variant.cpp
 )
 #message(${TEST_DUT_SRCS})
 ##########################################################################
@@ -115,9 +127,9 @@ set(TEST_DUT_SRCS
 set(TEST_TARGET_SRCS
   src/main.cpp
   #src/dtostrf.cpp
-  ${arduinoCore}/dtostrf.cpp
+  #${arduinoCore}/dtostrf.cpp
   #src/itoa.cpp
-  ${arduinoCore}/itoa.cpp
+  #${arduinoCore}/itoa.cpp
   src/MillisFake.cpp
   src/PrintMock.cpp
   src/StreamMock.cpp
@@ -161,11 +173,34 @@ add_executable(
   ${TEST_TARGET}
   ${TEST_TARGET_SRCS}
 )
+#######################################################################
+target_include_directories(
+  ${TEST_TARGET} 
+  PUBLIC ${LIB_HW_LIBS_INCLUDES}
+  PUBLIC ${LIB_ARDUINO_CORE_INCLUDES}
+  PUBLIC ${LIB_VARIANT_INCLUDES}
+  PUBLIC ${MCU_VARIANT_PATH}
+)
 
 
+#target_include_directories(${TEST_TARGET} PUBLIC )
+#target_include_directories(${TEST_TARGET} PUBLIC )
+#include_directories(
+#  ${LIB_HW_LIBS_INCLUDES}
+#${LIB_ARDUINO_CORE_INCLUDES}
+#${LIB_VARIANT_INCLUDES})
+#set(ALL_INCLUDED )
+#get_target_property(ALL_INCLUDES ${TEST_TARGET} INCLUDE_DIRECTORIES)
+#message("INCLUIDE\n" ${LIB_ARDUINO_CORE_INCLUDES} )
 ##########################################################################
 #target_link_libraries(${TEST_TARGET} PUBLIC Catch2::Catch2)
-target_link_libraries(${TEST_TARGET} PUBLIC Catch2::Catch2)
+target_link_libraries(${TEST_TARGET} 
+  PUBLIC Catch2::Catch2
+  PUBLIC LIB_HW_LIBS
+  PUBLIC LIB_ARDUINO_CORE
+  PUBLIC LIB_VARIANT_MOCK_V1
+)
+#include_directories(${PRJ_ROOT}/variants/mock_v1)
 
 # find_package(Catch REQUIRED)
 enable_testing()

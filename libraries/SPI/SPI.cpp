@@ -20,7 +20,7 @@
 #include "SPI.h"
 #include <Arduino.h>
 
-#include "StreamMock.h"
+#include "mock/StreamMock.h"
 
 
 #define SPI_IMODE_NONE   0

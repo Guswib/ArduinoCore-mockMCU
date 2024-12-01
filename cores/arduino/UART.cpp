@@ -29,7 +29,7 @@
 #include "UART.h"
 
 
-#include "StreamMock.h"
+#include "mock/StreamMock.h"
 
 /* 
 void serialEventRun(void)

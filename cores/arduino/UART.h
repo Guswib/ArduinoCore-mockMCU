@@ -27,7 +27,7 @@
 #include "api/HardwareSerial.h"
 #include "pins_arduino.h"
 
-#include "StreamMock.h"
+#include "mock/StreamMock.h"
 
 
 using namespace arduino;

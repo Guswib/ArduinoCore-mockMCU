@@ -31,7 +31,7 @@ extern "C" {
 #include "Wire.h"
 #include <api/Print.h>
 
-#include "StreamMock.h"
+#include "mock/StreamMock.h"
 
 
 
