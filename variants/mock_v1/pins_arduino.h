@@ -31,7 +31,7 @@ extern "C" unsigned int PINCOUNT_fn();
 
 /****** UART CORE DEFINES ******/
 
-#define SERIAL_HOWMANY		1
+#define SERIAL_HOWMANY		4
 #define UART1_TX_PIN        1
 #define UART1_RX_PIN        0
 

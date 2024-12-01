@@ -9,7 +9,8 @@ if(NOT TARGET LIB_MCU_VARIANT_MOCK_V1)
         
             
         PUBLIC
-            "${CMAKE_CURRENT_LIST_DIR}/pins_arduino.h"        
+            "${CMAKE_CURRENT_LIST_DIR}/pins_arduino.h"  
+            "${CMAKE_CURRENT_LIST_DIR}/avr/pgmspace.h"        
 
     )
 
