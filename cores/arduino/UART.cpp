@@ -88,17 +88,14 @@ void UartClass::begin(unsigned long baud, uint16_t config)
 
     // Setup port mux
 
-    int32_t baud_setting = 0;
-
-    //Make sure global interrupts are disabled during initialization
-    //uint8_t oldSREG = SREG;
+    int32_t baud_setting = baud;
 
     baud_setting = 100;
     
     _written = false;
 
     int8_t sigrow_val = 0;
-    baud_setting += (baud_setting * sigrow_val) / 1024;
+    baud_setting = baud;
 
 }
 
