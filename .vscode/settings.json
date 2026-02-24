@@ -83,5 +83,8 @@
         "typeinfo": "cpp",
         "variant": "cpp"
     },
+    "terminal.integrated.env.windows": {
+        "PATH": "C:/Program Files/CMake/bin;C:/msys64/mingw64/bin;C:/msys64/ucrt64/bin;C:/msys64/usr/bin;C:/msys64;C:/MinGW/bin;${env:PATH};"
+    },
     "cmake.default.generator": "MinGW Makefiles"
 }

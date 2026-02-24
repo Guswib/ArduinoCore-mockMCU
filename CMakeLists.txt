@@ -8,13 +8,13 @@ set(dir "${CMAKE_CURRENT_SOURCE_DIR}")
 
 message("Adding Hardware #######################################################")
 cmake_path(APPEND arduinoHW "${dir}")
-cmake_path(APPEND arduinoCore "${arduinoHW}" "cores/arduino")
-cmake_path(APPEND arduinoCoreAPI "${arduinoCore}" "api")
-cmake_path(APPEND arduinoCoreLib "${arduinoHW}" "libraries")
-cmake_path(APPEND arduinoCoreVariants "${arduinoHW}" "variants")
-message(${arduinoCore})
+cmake_path(APPEND arduinoHW_Core "${arduinoHW}" "cores/arduino")
+cmake_path(APPEND arduinoHW_CoreAPI "${arduinoHW_Core}" "api")
+cmake_path(APPEND arduinoHW_Lib "${arduinoHW}" "libraries")
+cmake_path(APPEND arduinoHW_Variants "${arduinoHW}" "variants")
+message(${arduinoHW_Core})
 
-set(MCU_VARIANT_PATH "${arduinoCoreVariants}/mock_v1" )
+set(MCU_VARIANT_PATH "${arduinoHW_Variants}/mock_v1" )
 set(LIB_MCU_VARIANT "" )
 
 
@@ -32,10 +32,10 @@ set(LIB_MCU_VARIANT "" )
 if(NOT TARGET LIB_HARDWARE)
     add_library(LIB_HARDWARE STATIC "")
     
-    add_subdirectory(${arduinoCore})
-    add_subdirectory(${arduinoCoreVariants}/mock_v1)
+    add_subdirectory(${arduinoHW_Core} "HW/cores")
+    add_subdirectory(${arduinoHW_Variants}/mock_v1 "HW/variants/mock_v1")
     # add_subdirectory(${arduinoCore})
-    add_subdirectory(${arduinoCoreLib})
+    add_subdirectory(${arduinoHW_Lib} "HW/libraries")
 
     get_target_property(LIB_HW_LIBS_INCLUDES LIB_HW_LIBS INCLUDE_DIRECTORIES)
     get_target_property(LIB_ARDUINO_CORE_INCLUDES LIB_ARDUINO_CORE INCLUDE_DIRECTORIES)
@@ -65,7 +65,12 @@ if(NOT TARGET LIB_HARDWARE)
     message("\nADDING THE HARDWARE######:  ")
     get_target_property(LIB_HARDWARE_INCLUDES LIB_HARDWARE INCLUDE_DIRECTORIES)
     message(${LIB_HARDWARE_INCLUDES})
+    foreach(dir ${LIB_HARDWARE_INCLUDES})
+    message(STATUS "  - ${dir}")
+endforeach()
+
     message("")
 
 endif()
+
 message("\nADD HARDWARE###### ENDED##########33\n")

@@ -62,7 +62,6 @@ if(NOT TARGET LIB_ARDUINO_CORE)
         PUBLIC 
             ${CMAKE_CURRENT_LIST_DIR}
             ${MCU_VARIANT_PATH}
-            ${CMAKE_CURRENT_LIST_DIR}/mock
     )
     target_link_libraries(LIB_ARDUINO_CORE 
     PUBLIC ${LIB_MCU_VARIANT}

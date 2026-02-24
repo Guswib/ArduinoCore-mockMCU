@@ -10,6 +10,7 @@ cmake_minimum_required(VERSION 3.25)
 
 project(example_test LANGUAGES CXX)
 include (CTest)
+include(FetchContent)
 ##########################################################################
 
 set(MCU_VARIANT_PATH "" )
@@ -21,30 +22,71 @@ message("PROJECT ROOT at:    " ${PRJ_ROOT})
 include_directories(./include)
 message("Other Paths:")
 
-set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
-cmake_path(APPEND arduinoCore "${PRJ_ROOT}" "cores/arduino")
+cmake_path(APPEND ArduinoCore_mockMCU_DIR "${PROJECT_SOURCE_DIR}" "build/_deps/HW")
+file(COPY "${PROJECT_SOURCE_DIR}/../cores" DESTINATION "${ArduinoCore_mockMCU_DIR}")
+
+#set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
+set(arduinoCore ${ArduinoCore_mockMCU_DIR}/cores/arduino )
+
+#file(REMOVE "${ArduinoCore_mockMCU_DIR}/cores/arduino/api")
+#file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${ArduinoCore_mockMCU_DIR}/cores/arduino")
+
+
+#cmake_path(APPEND arduinoCore "${PRJ_ROOT}" "cores/arduino")
 
 message("Arduino Core:       ${arduinoCore}")
 
 include_directories(${arduinoCore}) #Path tho arduino-core
-cmake_path(APPEND arduinoCore_API "${PRJ_ROOT}" "cores/arduino/api")
+cmake_path(APPEND arduinoCore_API "${ArduinoCore_mockMCU_DIR}" "cores/arduino/api")
+  message("ArduinpCoreAPI---${arduinoCore_API}")
+
 if(IS_SYMLINK ${arduinoCore_API})
   message("---path to API is a symlink")
 endif()
 
+
 #set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../cores/arduino/api )
 
-if(NOT EXISTS "${arduinoCore_API}/ArduinoAPI.h")
-  cmake_path(GET PRJ_ROOT PARENT_PATH arduinoCore_API)
-  cmake_path(APPEND arduinoCore_API "${arduinoCore_API}" "ArduinoCore-API/api")
+cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "ArduinoCore_api-src/api")
+
+if(NOT EXISTS "${ArduinoCore_API_SRC_DIR}/ArduinoAPI.h")
+#if(NOT EXISTS "${arduinoCore_API}/ArduinoAPI.h")
+  FetchContent_Declare(
+    ArduinoCore_API_github
+    GIT_REPOSITORY https://github.com/arduino/ArduinoCore-API.git
+    GIT_TAG        master
+    #SOURCE_DIR  "${ArduinoCore_mockMCU_DIR}/cores/arduino"
+  )
+  message("Arduino_API: Fetching from github")
+  FetchContent_MakeAvailable(ArduinoCore_API_github)
+
+
+  #cmake_path(GET PRJ_ROOT PARENT_PATH arduinoCore_API)
+  #cmake_path(APPEND arduinoCore_API "${arduinoCore_API}" "ArduinoCore-API/api")
+  #set(arduinoCore_API ${ArduinoCore_API_SRC_DIR})
+  #message("NEW PATH Arduino_API at:      " ${arduinoCore_API} )
 
   #set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../ArduinoCore-API/api )
   #include_directories(../ArduinoCore-API/api)
 endif()
+
+if(EXISTS "${ArduinoCore_API_SRC_DIR}/ArduinoAPI.h")
+    message("---ArduinoCoreAPI found locally")
+    file(REMOVE "${ArduinoCore_mockMCU_DIR}/cores/arduino/api")
+    file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${ArduinoCore_mockMCU_DIR}/cores/arduino")
+
+    message("---ArduinoCoreAPI copied")
+    set(arduinoCore_API ${ArduinoCore_API_SRC_DIR})
+
+endif()
+
 set(arduinoCore_API_exists false )
 if(EXISTS ${arduinoCore_API})
   set(arduinoCore_API_exists true )
 endif()
+
+
+
 message("Arduino_API at:      " ${arduinoCore_API} "       exists?" ${arduinoCore_API_exists})
 
 cmake_path(APPEND arduinoCoreLib "${PRJ_ROOT}" "libraries")
@@ -58,6 +100,8 @@ include_directories(external/catch/v2.13.9/include)
 
 
 message("Included dir:  " ${INCLUDE_DIRECTORIES})
+message("Included dir:  " ${INCLUDE_DIRECTORIES})
+
 ##########################################################################
 
 set(CMAKE_CXX_STANDARD 11)
@@ -69,8 +113,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(TEST_TARGET ${CMAKE_PROJECT_NAME})
 
 ##########################################################################
+add_subdirectory("${arduinoCore}")
 add_subdirectory("${PRJ_ROOT}/variants/mock_v1" "HW/variants/mock_v1")
-add_subdirectory("${PRJ_ROOT}/cores/arduino" "HW/core/arduino")
+#add_subdirectory("${PRJ_ROOT}/cores/arduino" "HW/core/arduino") has problems with symbolic links
 add_subdirectory("${PRJ_ROOT}/libraries" "HW/libraries")
 
 get_target_property(LIB_HW_LIBS_INCLUDES LIB_HW_LIBS INCLUDE_DIRECTORIES)
