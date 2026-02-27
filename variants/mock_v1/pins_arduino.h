@@ -11,6 +11,12 @@ extern "C" unsigned int PINCOUNT_fn();
 #define NUM_DIGITAL_PINS     (20u)
 #define NUM_ANALOG_INPUTS    (6u)
 #define NUM_ANALOG_OUTPUTS   (1u)
+/****** DAC CORE DEFINES *******/
+
+#define A0         0
+#define A1         1
+#define A2         2
+
 
 /****** DAC CORE DEFINES *******/
 #define DAC8_HOWMANY (0)
@@ -64,6 +70,10 @@ static const uint8_t SCL = WIRE_SCL_PIN;
 #define _PINS_ARDUINO_H_INCLUDED 1
 #ifndef _PINS_ARDUINO_H_INCLUDED
 #define _PINS_ARDUINO_H_INCLUDED 1
+
+
+
+
 
 
 uint8_t *  portOutputRegister( uint8_t reg) {
