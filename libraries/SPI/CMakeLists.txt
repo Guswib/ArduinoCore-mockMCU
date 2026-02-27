@@ -1,3 +1,8 @@
+if(NOT TARGET LIB_ARDUINO_CORE)
+    message("LIB_ARDUINO_CORE target must be created first.")
+endif()
+
+
 if(NOT TARGET LIB_SPI)
 add_library(LIB_SPI STATIC "")
 

@@ -21,6 +21,12 @@ set(MCU_VARIANT_PATH "" )
 set(LIB_MCU_VARIANT "" )
 
 
+
+
+
+
+
+
 set(dir "${CMAKE_CURRENT_SOURCE_DIR}")
 message("Adding Hardware #######################################################")
 cmake_path(APPEND arduinoHW "${dir}/..")
@@ -42,8 +48,8 @@ add_subdirectory(${MCU_VARIANT_PATH} "variant/mock_v1")
 
 message("\nADDING THE variant######:  ")
     get_target_property(LIB_HARDWARE_INCLUDES LIB_ARDUINO_CORE INCLUDE_DIRECTORIES)
-    message(${LIB_ARDUINO_CORE})
-    foreach(dir ${LIB_ARDUINO_CORE})
+    message( "LIB_ARDUINO_CORE")
+  foreach(dir ${LIB_ARDUINO_CORE})
     message(STATUS "  - ${dir}")
 endforeach()
 

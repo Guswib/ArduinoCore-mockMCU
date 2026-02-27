@@ -9,11 +9,16 @@ cmake_minimum_required(VERSION 3.25)
 ##########################################################################
 
 project(example_test LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS ON) # Ensures you use standard C++, not compiler-specific hacks
+
 include (CTest)
 include(FetchContent)
+set(FETCHCONTENT_UPDATES_DISCONNECTED ON CACHE BOOL "Do not update every time I run cmake, please")
+
 ##########################################################################
 
-set(MCU_VARIANT_PATH "" )
 set(LIB_MCU_VARIANT "" )
 
 cmake_path(GET PROJECT_SOURCE_DIR PARENT_PATH PRJ_ROOT)
@@ -22,6 +27,10 @@ message("PROJECT ROOT at:    " ${PRJ_ROOT})
 include_directories(./include)
 message("Other Paths:")
 
+set(MCU_VARIANT_PATH "${PRJ_ROOT}/variants/mock_v1" )
+set(ArduinoCore_SRC_DIR ${PRJ_ROOT}/cores/arduino )
+
+
 cmake_path(APPEND ArduinoCore_mockMCU_DIR "${PROJECT_SOURCE_DIR}" "build/_deps/HW")
 file(COPY "${PROJECT_SOURCE_DIR}/../cores" DESTINATION "${ArduinoCore_mockMCU_DIR}")
 
@@ -29,16 +38,17 @@ file(COPY "${PROJECT_SOURCE_DIR}/../cores" DESTINATION "${ArduinoCore_mockMCU_DI
 set(arduinoCore ${ArduinoCore_mockMCU_DIR}/cores/arduino )
 
 #file(REMOVE "${ArduinoCore_mockMCU_DIR}/cores/arduino/api")
-#file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${ArduinoCore_mockMCU_DIR}/cores/arduino")
+
+file(COPY "${ArduinoCore_SRC_DIR}" DESTINATION "${ArduinoCore_mockMCU_DIR}/cores/arduino")
 
 
-#cmake_path(APPEND arduinoCore "${PRJ_ROOT}" "cores/arduino")
+cmake_path(APPEND arduinoCore "${ArduinoCore_mockMCU_DIR}" "cores/arduino")
 
-message("Arduino Core:       ${arduinoCore}")
+message("Arduino Core:       ${arduinoCore} - copy")
 
-include_directories(${arduinoCore}) #Path tho arduino-core
+#include_directories(${arduinoCore}) #Path tho arduino-core
 cmake_path(APPEND arduinoCore_API "${ArduinoCore_mockMCU_DIR}" "cores/arduino/api")
-  message("ArduinpCoreAPI---${arduinoCore_API}")
+message("ArduinpCoreAPI---${arduinoCore_API}")
 
 if(IS_SYMLINK ${arduinoCore_API})
   message("---path to API is a symlink")
@@ -47,7 +57,8 @@ endif()
 
 #set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../cores/arduino/api )
 
-cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "ArduinoCore_api-src/api")
+cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "ArduinoCore_API_github-src/api")
+
 
 if(NOT EXISTS "${ArduinoCore_API_SRC_DIR}/ArduinoAPI.h")
 #if(NOT EXISTS "${arduinoCore_API}/ArduinoAPI.h")
@@ -60,14 +71,6 @@ if(NOT EXISTS "${ArduinoCore_API_SRC_DIR}/ArduinoAPI.h")
   message("Arduino_API: Fetching from github")
   FetchContent_MakeAvailable(ArduinoCore_API_github)
 
-
-  #cmake_path(GET PRJ_ROOT PARENT_PATH arduinoCore_API)
-  #cmake_path(APPEND arduinoCore_API "${arduinoCore_API}" "ArduinoCore-API/api")
-  #set(arduinoCore_API ${ArduinoCore_API_SRC_DIR})
-  #message("NEW PATH Arduino_API at:      " ${arduinoCore_API} )
-
-  #set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../ArduinoCore-API/api )
-  #include_directories(../ArduinoCore-API/api)
 endif()
 
 if(EXISTS "${ArduinoCore_API_SRC_DIR}/ArduinoAPI.h")
@@ -76,7 +79,7 @@ if(EXISTS "${ArduinoCore_API_SRC_DIR}/ArduinoAPI.h")
     file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${ArduinoCore_mockMCU_DIR}/cores/arduino")
 
     message("---ArduinoCoreAPI copied")
-    set(arduinoCore_API ${ArduinoCore_API_SRC_DIR})
+    set(arduinoCore_API "${ArduinoCore_mockMCU_DIR}/cores/arduino/api")
 
 endif()
 
@@ -85,21 +88,19 @@ if(EXISTS ${arduinoCore_API})
   set(arduinoCore_API_exists true )
 endif()
 
-
+#set(PATH_TO_ARDUINO_API ${ArduinoCore_API_SRC_DIR})
 
 message("Arduino_API at:      " ${arduinoCore_API} "       exists?" ${arduinoCore_API_exists})
 
-cmake_path(APPEND arduinoCoreLib "${PRJ_ROOT}" "libraries")
 
 #include_directories(${arduinoCoreLib}/Wire) #Path tho arduino-core
 #include_directories(${arduinoCoreLib}/SPI) #Path tho arduino-core
-include_directories(../variants/mock_v1) #Path tho arduino-core
+#include_directories(../variants/mock_v1) #Path tho arduino-core
 
 include_directories(external/catch/v2.13.9/include)
 #target_include_directories(Catch INTERFACE "external/catch/v2.13.9/include")
 
 
-message("Included dir:  " ${INCLUDE_DIRECTORIES})
 message("Included dir:  " ${INCLUDE_DIRECTORIES})
 
 ##########################################################################
@@ -113,15 +114,24 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(TEST_TARGET ${CMAKE_PROJECT_NAME})
 
 ##########################################################################
-add_subdirectory("${arduinoCore}")
-add_subdirectory("${PRJ_ROOT}/variants/mock_v1" "HW/variants/mock_v1")
+message("Included subdir:  " ${arduinoCore})
+
+add_subdirectory("${arduinoCore}" "HW/cores/arduino")
+
+#add_subdirectory("${MCU_VARIANT_PATH}" HW/variants/mock_v1)
+
+#add_subdirectory("${PRJ_ROOT}/." HW/.) //does not work.
+
+message("Included dir2:  " ${INCLUDE_DIRECTORIES})
+
 #add_subdirectory("${PRJ_ROOT}/cores/arduino" "HW/core/arduino") has problems with symbolic links
+
 add_subdirectory("${PRJ_ROOT}/libraries" "HW/libraries")
 
-get_target_property(LIB_HW_LIBS_INCLUDES LIB_HW_LIBS INCLUDE_DIRECTORIES)
+#get_target_property(LIB_HW_LIBS_INCLUDES LIB_HW_LIBS INCLUDE_DIRECTORIES)
 get_target_property(LIB_ARDUINO_CORE_INCLUDES LIB_ARDUINO_CORE INCLUDE_DIRECTORIES)
 ##SELECT WHICH VARIANT TO USE:
-get_target_property(LIB_VARIANT_INCLUDES LIB_VARIANT_MOCK_V1 INCLUDE_DIRECTORIES)
+#get_target_property(LIB_VARIANT_INCLUDES LIB_VARIANT_MOCK_V1 INCLUDE_DIRECTORIES)
 
 
 ##########################################################################
@@ -145,29 +155,6 @@ set(TEST_SRCS
    
 )
 
-# set(arduinoCore-API )
-set(TEST_DUT_SRCS
-   
-  .
-  #${arduinoCore_API}/Stream.cpp
-  #${arduinoCore_API}/String.cpp
-  #${arduinoCore_API}/Print.cpp
-  #${arduinoCore_API}/Common.cpp
-
- 
-  #${arduinoCore}/UART.cpp
-  #${arduinoCore}/UART0.cpp
-  #${arduinoCore}/UART1.cpp
-  #${arduinoCore}/UART2.cpp
-  #${arduinoCore}/UART3.cpp
-
-  #${arduinoCoreLib}/SPI/SPI.cpp
-  #${arduinoCoreLib}/Wire/Wire.cpp
-
-  #../variants/mock_v1/variant.cpp
-)
-#message(${TEST_DUT_SRCS})
-##########################################################################
 
 set(TEST_TARGET_SRCS
   src/main.cpp
@@ -175,9 +162,9 @@ set(TEST_TARGET_SRCS
   #${arduinoCore}/dtostrf.cpp
   #src/itoa.cpp
   #${arduinoCore}/itoa.cpp
-  src/MillisFake.cpp
-  src/PrintMock.cpp
-  src/StreamMock.cpp
+  #src/MillisFake.cpp
+  #src/PrintMock.cpp
+  #src/StreamMock.cpp
   ${TEST_SRCS}
   ${TEST_DUT_SRCS}
 )
@@ -219,15 +206,25 @@ add_executable(
   ${TEST_TARGET_SRCS}
 )
 #######################################################################
-target_include_directories(
-  ${TEST_TARGET} 
-  PUBLIC ${LIB_HW_LIBS_INCLUDES}
-  PUBLIC ${LIB_ARDUINO_CORE_INCLUDES}
-  PUBLIC ${LIB_VARIANT_INCLUDES}
-  PUBLIC ${MCU_VARIANT_PATH}
-)
+#target_include_directories(
+#  ${TEST_TARGET} 
+ # PUBLIC ${LIB_HW_LIBS_INCLUDES}
+ # PUBLIC ${LIB_ARDUINO_CORE_INCLUDES}
+ # PUBLIC ${LIB_VARIANT_INCLUDES}
+ # PUBLIC ${MCU_VARIANT_PATH}
+#)
 
+get_target_property(LIB_HARDWARE_INCLUDES ${TEST_TARGET} SOURCES)
+    message("SOURCES")
+    foreach(dir ${TEST_TARGET_SRCS})
+        message(STATUS "  - ${dir}")
+    endforeach()
 
+get_target_property(LIB_HARDWARE_INCLUDES ${TEST_TARGET} INCLUDE_DIRECTORIES)
+    message("LIB_HARDWARE_INCLUDES")
+    foreach(dir ${LIB_HARDWARE_INCLUDES})
+        message(STATUS "  - ${dir}")
+    endforeach()
 #target_include_directories(${TEST_TARGET} PUBLIC )
 #target_include_directories(${TEST_TARGET} PUBLIC )
 #include_directories(
@@ -241,16 +238,19 @@ target_include_directories(
 #target_link_libraries(${TEST_TARGET} PUBLIC Catch2::Catch2)
 target_link_libraries(${TEST_TARGET} 
   PUBLIC Catch2::Catch2
-  PUBLIC LIB_HW_LIBS
   PUBLIC LIB_ARDUINO_CORE
-  PUBLIC LIB_VARIANT_MOCK_V1
+  PUBLIC LIB_HW_LIBS
+
+  #PUBLIC LIB_VARIANT_MOCK_V1
 )
 #include_directories(${PRJ_ROOT}/variants/mock_v1)
+target_compile_options(${TEST_TARGET} PRIVATE "-include" "cstring")
 
 # find_package(Catch REQUIRED)
 enable_testing()
 include(Catch)
 add_test(NAME MockV1testing COMMAND ${TEST_TARGET} )
+include_directories("C:/msys64/mingw64/include")
 # add_test(NAME catch_test COMMAND ${TEST_TARGET} --success)
 
 catch_discover_tests(${TEST_TARGET})

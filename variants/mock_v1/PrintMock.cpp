@@ -2,30 +2,18 @@
  * Copyright (c) 2020 Arduino.  All rights reserved.
  */
 
-#ifndef MILLIS_FAKE_H_
-#define MILLIS_FAKE_H_
-
 /**************************************************************************************
  * INCLUDE
  **************************************************************************************/
 
-#include <api/Common.h>
+#include <PrintMock.h>
 
 /**************************************************************************************
- * FUNCTION DECLARATION
+ * PUBLIC MEMBER FUNCTIONS
  **************************************************************************************/
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-void millis_autoOn();
-void millis_autoOff();
-void set_millis(unsigned long const val);
-
-
-#ifdef __cplusplus
+size_t PrintMock::write(uint8_t b)
+{
+  _str.append(1, static_cast<char>(b));
+  return 1;
 }
-#endif
-
-#endif /* MILLIS_FAKE_H_ */

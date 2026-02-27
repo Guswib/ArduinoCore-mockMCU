@@ -1,5 +1,42 @@
+# Check if a variable named 'MY_VARIABLE' is set
+if(DEFINED PATH_TO_ARDUINO_API)
+    message("CORE: PATH_TO_ARDUINO_API is set. Value: ${PATH_TO_ARDUINO_API}")
+else()
+    set(PATH_TO_ARDUINO_API "${CMAKE_CURRENT_LIST_DIR}/api")
+    message("CORE: PATH_TO_ARDUINO_API is not set. Defaulting to: ${PATH_TO_ARDUINO_API}")
+endif()
+
+if(DEFINED PATH_TO_ARDUINO_API)   
+    message("Core: PATH_TO_ARDUINO_API is set to ${PATH_TO_ARDUINO_API}")
+else()
+    message("Core: PATH_TO_ARDUINO_API not set, defaulting to ${PATH_TO_ARDUINO_API}")
+endif()
+
+
+get_directory_property(PARENT_DIR_PATH1 PARENT_DIRECTORY)
+get_directory_property(LOCAL_PRJ PARENT_DIRECTORY)
+
+
+if(NOT DEFINED MCU_VARIANT_PATH)
+    set(MCU_VARIANT_PATH "${LOCAL_PRJ}/variants/mock_v1")
+    message("MCU_VARIANT_PATH not set, defaulting to ${MCU_VARIANT_PATH}")
+else()
+    if(EXISTS "${MCU_VARIANT_PATH}")
+        message("MCU_VARIANT_PATH is set to ${MCU_VARIANT_PATH}")
+    else()
+        message(FATAL_ERROR "MCU_VARIANT_PATH is set to ${MCU_VARIANT_PATH} but the path does not exist.")
+    endif()
+endif()
+
 if(NOT TARGET LIB_ARDUINO_CORE)
     add_library(LIB_ARDUINO_CORE STATIC "")
+
+    add_subdirectory("api" "api" SYSTEM)
+    add_subdirectory("${MCU_VARIANT_PATH}" "variant" SYSTEM)
+
+
+#target_compile_options(LIB_ARDUINO_CORE PRIVATE "-include" "string")
+#target_compile_options(LIB_ARDUINO_CORE PRIVATE "-include" "cstring")
 
     target_sources(LIB_ARDUINO_CORE
         PRIVATE
@@ -11,45 +48,10 @@ if(NOT TARGET LIB_ARDUINO_CORE)
             ${CMAKE_CURRENT_LIST_DIR}/UART1.cpp  
             ${CMAKE_CURRENT_LIST_DIR}/UART2.cpp  
             ${CMAKE_CURRENT_LIST_DIR}/UART3.cpp  
-
-            ${CMAKE_CURRENT_LIST_DIR}/api/CanMsg.cpp  
-            ${CMAKE_CURRENT_LIST_DIR}/api/CanMsgRingbuffer.cpp  
-            ${CMAKE_CURRENT_LIST_DIR}/api/Common.cpp  
-            ${CMAKE_CURRENT_LIST_DIR}/api/IPAddress.cpp  
-            ${CMAKE_CURRENT_LIST_DIR}/api/PluggableUSB.cpp  
-            ${CMAKE_CURRENT_LIST_DIR}/api/Print.cpp  
-            ${CMAKE_CURRENT_LIST_DIR}/api/Stream.cpp    
-            ${CMAKE_CURRENT_LIST_DIR}/api/String.cpp        
-    
             
         PUBLIC
             ${CMAKE_CURRENT_LIST_DIR}/Arduino.h
             ${CMAKE_CURRENT_LIST_DIR}/UART.h
-
-            ${CMAKE_CURRENT_LIST_DIR}/api/ArduinoAPI.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/Binary.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/CanMsg.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/Client.h  
-            ${CMAKE_CURRENT_LIST_DIR}/api/Common.h  
-            ${CMAKE_CURRENT_LIST_DIR}/api/Compat.h  
-            ${CMAKE_CURRENT_LIST_DIR}/api/DMAPool.h  
-            ${CMAKE_CURRENT_LIST_DIR}/api/HardwareCAN.h  
-            ${CMAKE_CURRENT_LIST_DIR}/api/HardwareI2C.h  
-            ${CMAKE_CURRENT_LIST_DIR}/api/HardwareSerial.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/HardwareSPI.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/Interrupts.h  
-            ${CMAKE_CURRENT_LIST_DIR}/api/IPAddress.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/itoa.h 
-            ${CMAKE_CURRENT_LIST_DIR}/api/PluggableUSB.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/Print.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/Printable.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/RingBuffer.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/Server.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/Stream.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/String.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/Udp.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/USBAPI.h
-            ${CMAKE_CURRENT_LIST_DIR}/api/WCharacter.h  
 
             ${CMAKE_CURRENT_LIST_DIR}/mock/MillisFake.h
             ${CMAKE_CURRENT_LIST_DIR}/mock/PrintableMock.h
@@ -60,13 +62,15 @@ if(NOT TARGET LIB_ARDUINO_CORE)
     )
     target_include_directories(LIB_ARDUINO_CORE
         PUBLIC 
+        #    ${PATH_TO_ARDUINO_API}    #do not include a path to the APU. There will be an issue then string.h .
             ${CMAKE_CURRENT_LIST_DIR}
             ${MCU_VARIANT_PATH}
             ${CMAKE_CURRENT_LIST_DIR}/mock
     )
-    target_link_libraries(LIB_ARDUINO_CORE 
-    PUBLIC ${LIB_MCU_VARIANT}
-    )
+    #target_link_libraries(LIB_ARDUINO_CORE 
+  #  PUBLIC LIB_ARDUINO_CORE_API
+   # PUBLIC ${LIB_MCU_VARIANT}
+   # )
     install(
         TARGETS LIB_ARDUINO_CORE
         RUNTIME_DEPENDENCIES
