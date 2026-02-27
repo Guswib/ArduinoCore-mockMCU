@@ -93,10 +93,6 @@ endif()
 message("Arduino_API at:      " ${arduinoCore_API} "       exists?" ${arduinoCore_API_exists})
 
 
-#include_directories(${arduinoCoreLib}/Wire) #Path tho arduino-core
-#include_directories(${arduinoCoreLib}/SPI) #Path tho arduino-core
-#include_directories(../variants/mock_v1) #Path tho arduino-core
-
 include_directories(external/catch/v2.13.9/include)
 #target_include_directories(Catch INTERFACE "external/catch/v2.13.9/include")
 
@@ -136,37 +132,11 @@ get_target_property(LIB_ARDUINO_CORE_INCLUDES LIB_ARDUINO_CORE INCLUDE_DIRECTORI
 
 ##########################################################################
 
-set(TEST_SRCS
- 
-  src/Stream/test_find.cpp
-  src/Stream/test_findUntil.cpp
-  src/Stream/test_getTimeout.cpp
-  src/Stream/test_parseFloat.cpp
-  src/Stream/test_parseInt.cpp
-  src/Stream/test_readBytes.cpp
-  src/Stream/test_readBytesUntil.cpp
-  src/Stream/test_readString.cpp
-  src/Stream/test_readStringUntil.cpp
-  src/Stream/test_setTimeout.cpp
- 
-  src/Serial/test_Serial.cpp
-  src/SPI/test_SPI.cpp
-  
-   
-)
-
+add_subdirectory(src) #adds all tests
 
 set(TEST_TARGET_SRCS
   src/main.cpp
-  #src/dtostrf.cpp
-  #${arduinoCore}/dtostrf.cpp
-  #src/itoa.cpp
-  #${arduinoCore}/itoa.cpp
-  #src/MillisFake.cpp
-  #src/PrintMock.cpp
-  #src/StreamMock.cpp
   ${TEST_SRCS}
-  ${TEST_DUT_SRCS}
 )
 ##########################################################################
 
@@ -205,14 +175,7 @@ add_executable(
   ${TEST_TARGET}
   ${TEST_TARGET_SRCS}
 )
-#######################################################################
-#target_include_directories(
-#  ${TEST_TARGET} 
- # PUBLIC ${LIB_HW_LIBS_INCLUDES}
- # PUBLIC ${LIB_ARDUINO_CORE_INCLUDES}
- # PUBLIC ${LIB_VARIANT_INCLUDES}
- # PUBLIC ${MCU_VARIANT_PATH}
-#)
+
 
 get_target_property(LIB_HARDWARE_INCLUDES ${TEST_TARGET} SOURCES)
     message("SOURCES")
@@ -236,6 +199,8 @@ get_target_property(LIB_HARDWARE_INCLUDES ${TEST_TARGET} INCLUDE_DIRECTORIES)
 #message("INCLUIDE\n" ${LIB_ARDUINO_CORE_INCLUDES} )
 ##########################################################################
 #target_link_libraries(${TEST_TARGET} PUBLIC Catch2::Catch2)
+
+
 target_link_libraries(${TEST_TARGET} 
   PUBLIC Catch2::Catch2
   PUBLIC LIB_ARDUINO_CORE
