@@ -87,11 +87,11 @@ jobs:
         shell: bash
         run: |
           echo "::group::Run CMake on /test"
-          cmake -S "test" -B "test/build"
+          cmake -S "./test" -B "./test/build"
           echo "::endgroup::"
           echo "::group::Run Make on /test/build"
           # make --directory="test/build"
-          cmake --build "test/build"
+          cmake --build "./test/build"
           echo "::endgroup::"
 
       - name: Run tests
