@@ -54,3 +54,5 @@ gtest_discover_tests(${TEST_TARGET})
 add_test(NAME ${TEST_TARGET}
          COMMAND ${TEST_TARGET}
          )
+
+add_compile_definitions( HOST 1)

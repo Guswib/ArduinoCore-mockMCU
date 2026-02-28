@@ -40,8 +40,7 @@ set(header_files
 if(NOT TARGET LIB_ARDUINO_CORE)
     add_library(LIB_ARDUINO_CORE STATIC "")
 
-    add_subdirectory("api" "api" SYSTEM)
-    add_subdirectory("${MCU_VARIANT_PATH}" "variant" SYSTEM)
+   
 
 
 #target_compile_options(LIB_ARDUINO_CORE PRIVATE "-include" "string")
@@ -72,6 +71,9 @@ if(NOT TARGET LIB_ARDUINO_CORE)
             ${MCU_VARIANT_PATH}
             ${CMAKE_CURRENT_LIST_DIR}/mock
     )
+
+    add_subdirectory("api" "api" SYSTEM)
+    add_subdirectory("${MCU_VARIANT_PATH}" "variant" SYSTEM)
 
     install(
         TARGETS LIB_ARDUINO_CORE

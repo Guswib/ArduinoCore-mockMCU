@@ -3,6 +3,9 @@
 
 #include "analog.h"
 
+#include <api/Common.h>
+
+
 int analog_write_values[16];
 int analogReference_value = 0;
 int analogReadResolution_value = 10;

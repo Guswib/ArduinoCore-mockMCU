@@ -40,13 +40,18 @@ set(api_h_files
 
 ) # Creates a list: a;b;c
 
+target_sources(LIB_ARDUINO_CORE
+        PUBLIC
+        FILE_SET HEADERS    
+        FILES ${api_h_files}
+     )
 
 if(TARGET LIB_ARDUINO_CORE)
     add_library(LIB_ARDUINO_CORE_API INTERFACE "")
-    target_sources(LIB_ARDUINO_CORE
-        INTERFACE
-            ${api_h_files}
-    )
+  #  target_sources(LIB_ARDUINO_CORE
+  #      INTERFACE
+  #          ${api_h_files}
+  #  )
 endif()
 
 
@@ -75,10 +80,8 @@ target_sources(LIB_ARDUINO_CORE
             ${PATH_TO_ARDUINO_API}/Print.cpp  
             ${PATH_TO_ARDUINO_API}/Stream.cpp    
             ${PATH_TO_ARDUINO_API}/String.cpp        
-    
-        PUBLIC
-           ${api_h_files}
     )
+
  
 
 endif()

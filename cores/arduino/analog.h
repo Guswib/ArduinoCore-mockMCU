@@ -10,11 +10,11 @@ extern int analogReadResolution_value;
 extern int analogReference_value;
 extern StreamMock MOCKStream_analogIO;
 
-int analogReadResolution(int res);
-int analogRead(int pin);
+//int analogReadResolution(int res);
+//int analogRead(int pin);
 
-void analogReference(uint8_t mode);
+//void analogReference(uint8_t mode);
 
-void analogWrite(uint8_t pin, int val);
+//void analogWrite(uint8_t pin, int val);
 
 #endif
