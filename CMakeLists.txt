@@ -6,9 +6,13 @@ set(BASE_DIR "${CMAKE_CURRENT_LIST_DIR}")
 message("\nAdding Hardware #######################################################")
 message("   - Arduino_API:")
 
-if(EXISTS "${CMAKE_CURRENT_LIST_DIR}/cores/arduino/api/ArduinoCore_API.h")
+cmake_path(APPEND PATH_TO_ARDUINO_API "${CMAKE_CURRENT_LIST_DIR}/cores/arduino/api")    
+    message("       - ArduinoCore-API alread.${PATH_TO_ARDUINO_API}")
+#if(EXISTS "${PATH_TO_ARDUINO_API}/ArduinoAPI.h")
+#endif()
+
+if(EXISTS "${PATH_TO_ARDUINO_API}/ArduinoAPI.h")
     message("       - ArduinoCore-API already exists.")
-    cmake_path(APPEND PATH_TO_ARDUINO_API "${CMAKE_CURRENT_LIST_DIR}/cores/arduino/api")    
 else()
 
 set(FETCHCONTENT_UPDATES_DISCONNECTED ON CACHE BOOL "Do not update every time I run cmake, please")
@@ -20,17 +24,17 @@ include(FetchContent)
 
 set(FETCHCONTENT_UPDATES_DISCONNECTED ON CACHE BOOL "Do not update every time I run cmake, please")
 FetchContent_Declare(
-    ArduinoCore_API_github
+    arduinocore_api_github
     GIT_REPOSITORY https://github.com/arduino/ArduinoCore-API.git
     GIT_TAG        master
     #SOURCE_DIR  "${ArduinoCore_mockMCU_DIR}/cores/arduino"
   )
 message("       - Fetching from github")
 
-FetchContent_MakeAvailable(ArduinoCore_API_github)
+FetchContent_MakeAvailable(arduinocore_api_github)
 
 cmake_path(APPEND ARDUINO_HW "${FETCHCONTENT_BASE_DIR}" "HW_temp")
-cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "ArduinoCore_API_github-src/api")
+cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "arduinocore_api_github-src/api")
 
 #message("       - Copying API from ${ArduinoCore_API_SRC_DIR} to ${ARDUINO_HW}/cores/arduino")
 message("       - Copying API")

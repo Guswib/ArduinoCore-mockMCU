@@ -57,19 +57,19 @@ endif()
 
 #set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../cores/arduino/api )
 
-cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "ArduinoCore_API_github-src/api")
+cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "arduinocore_api_github-src/api")
 
 
 if(NOT EXISTS "${ArduinoCore_API_SRC_DIR}/ArduinoAPI.h")
 #if(NOT EXISTS "${arduinoCore_API}/ArduinoAPI.h")
   FetchContent_Declare(
-    ArduinoCore_API_github
+    arduinocore_api_github
     GIT_REPOSITORY https://github.com/arduino/ArduinoCore-API.git
     GIT_TAG        master
     #SOURCE_DIR  "${ArduinoCore_mockMCU_DIR}/cores/arduino"
   )
   message("Arduino_API: Fetching from github")
-  FetchContent_MakeAvailable(ArduinoCore_API_github)
+  FetchContent_MakeAvailable(arduinocore_api_github)
 
 endif()
 
