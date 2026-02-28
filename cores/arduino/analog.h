@@ -5,6 +5,9 @@
 #include "Arduino.h"
 #include "StreamMock.h"
 
+#include "api/Common.h"
+
+
 extern int analog_write_values[];
 extern int analogReadResolution_value;
 extern int analogReference_value;
