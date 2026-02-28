@@ -7,20 +7,23 @@
 /**************************************************************************************
  * INCLUDE
  **************************************************************************************/
-
-#include <catch.hpp>
-
+#include <gtest/gtest.h>
+#include <Arduino.h>
 #include <StreamMock.h>
 
 /**************************************************************************************
  * TEST CODE
  **************************************************************************************/
 
-TEST_CASE ("Verifying if calling 'setTimeout' is indeed modifying the timeout", "[Stream-setTimeout-01]")
+ namespace {
+
+TEST(timeout, Stream_setTimeout_01)
 {
   StreamMock mock;
 
   mock.setTimeout(100);
 
-  REQUIRE(mock.getTimeout() == 100);
+  EXPECT_TRUE(mock.getTimeout() == 100);
+}
+
 }

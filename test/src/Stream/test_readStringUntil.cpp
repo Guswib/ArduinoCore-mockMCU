@@ -7,9 +7,8 @@
 /**************************************************************************************
  * INCLUDE
  **************************************************************************************/
-
-#include <catch.hpp>
-
+#include <gtest/gtest.h>
+#include <Arduino.h>
 #include <MillisFake.h>
 #include <StreamMock.h>
 #include <iostream>
@@ -17,22 +16,27 @@
  * TEST CODE
  **************************************************************************************/
 
-TEST_CASE ("Testing 'readStringUntil' with separator available within the stream", "[Stream-readStringUntil-01]")
+ namespace {
+
+TEST(readStringUntil, Stream_readStringUntil_01)
 {
   StreamMock mock;
   mock.setTimeout(10);
   millis_autoOn();
   mock << "This is test! lorem ipsum lalala";
 
-  REQUIRE(mock.readStringUntil('!') == arduino::String("This is test"));
+  EXPECT_TRUE(mock.readStringUntil('!') == arduino::String("This is test"));
 }
 
-TEST_CASE ("Testing 'readStringUntil' with separator not available within the stream", "[Stream-readStringUntil-02]")
+TEST(readStringUntil, Stream_readStringUntil_02)
+
 {
   StreamMock mock;
   mock.setTimeout(10);
   millis_autoOn();
   mock << "This is test ... lorem ipsum lalala";
 
-  REQUIRE(mock.readStringUntil('!') == arduino::String("This is test ... lorem ipsum lalala"));
+  EXPECT_TRUE(mock.readStringUntil('!') == arduino::String("This is test ... lorem ipsum lalala"));
+}
+
 }

@@ -7,22 +7,22 @@
 /**************************************************************************************
  * INCLUDE
  **************************************************************************************/
-
-#include <catch.hpp>
-
+#include <gtest/gtest.h>
+#include <Arduino.h>
 #include <MillisFake.h>
 #include <StreamMock.h>
 
 /**************************************************************************************
  * TEST CODE
  **************************************************************************************/
-
-TEST_CASE ("Testing 'readString' with data available within the stream", "[Stream-readString-01]")
+namespace {
+TEST(readString, Stream_readString_01)
 {
   StreamMock mock;
   mock.setTimeout(10);
   millis_autoOn();
   mock << "This is test stream content";
 
-  REQUIRE(mock.readString() == arduino::String("This is test stream content"));
+  EXPECT_TRUE(mock.readString() == arduino::String("This is test stream content"));
+}
 }

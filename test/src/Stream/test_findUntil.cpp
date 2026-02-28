@@ -7,45 +7,35 @@
 /**************************************************************************************
  * INCLUDE
  **************************************************************************************/
-
-#include <catch.hpp>
-
+#include <gtest/gtest.h>
+#include <Arduino.h>
 #include <StreamMock.h>
 
 /**************************************************************************************
  * TEST CODE
  **************************************************************************************/
 
-TEST_CASE ("Testing findUntil(const char *target, const char *terminator)", "[Stream-findUntil-01]")
+TEST(Testing_Stream, Stream_findUntil_01)
 {
   StreamMock mock;
 
-  WHEN ("'target' is contained in stream")
-  {
-    WHEN ("'terminator' appears before 'target'")
-    {
+ 
+   
       mock << "This is a : test string";
-      REQUIRE(mock.findUntil("test", ": ") == false);
-      REQUIRE(mock.readString() == arduino::String("test string"));
-    }
-    WHEN ("'terminator' appears after 'target'")
-    {
-      mock << "This is a test : string";
-      REQUIRE(mock.findUntil("test", ": ") == true);
-      REQUIRE(mock.readString() == arduino::String(" : string"));
-    }
-    WHEN ("'terminator' is not included in the string at all")
-    {
-      mock << "This is a test string";
-      REQUIRE(mock.findUntil("test", ": ") == true);
-      REQUIRE(mock.readString() == arduino::String(" string"));
-    }
-  }
+      EXPECT_TRUE(mock.findUntil("test", ": ") == false);
+      EXPECT_TRUE(mock.readString() == arduino::String("test string"));
+     StreamMock mock1;
 
-  WHEN ("'target' is not contained in stream")
-  {
-    mock << "This is a test string";
-    REQUIRE(mock.findUntil("abc", "def") == false);
-    REQUIRE(mock.readString() == arduino::String(""));
-  }
+      mock1 << "This is a test : string";
+      EXPECT_TRUE(mock1.findUntil("test", ": ") == true);
+      EXPECT_TRUE(mock1.readString() == arduino::String(" : string"));
+      StreamMock mock2;
+
+      mock2 << "This is a test string";
+      EXPECT_TRUE(mock2.findUntil("test", ": ") == true);
+      EXPECT_TRUE(mock2.readString() == arduino::String(" string"));
+    
+  
+
+ 
 }

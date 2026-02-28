@@ -10,7 +10,6 @@
 
 #include <gtest/gtest.h>
 #include <Arduino.h>
-#include <SPI.h>
 #include <iostream>
 /**************************************************************************************
  * TEST CODE

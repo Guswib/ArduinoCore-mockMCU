@@ -8,12 +8,9 @@ cmake_minimum_required(VERSION 3.25)
 set(CMAKE_POLICY_VERSION_MINIMUM 3.5
 )
  
-set( CMAKE_C_COMPILER   "C:/msys64/mingw64/bin/gcc.exe" )
-set( CMAKE_CXX_COMPILER "C:/msys64/mingw64/bin/g++.exe" )
-#set( CMAKE_CXX_COMPILER "C:/MinGW/bin/g++.exe" )
-#set( CMAKE_C_COMPILER   "C:/MinGW/bin/gcc.exe" )
-#set( CMAKE_CXX_COMPILER "C:/msys64/ucrt64/bin/g++.exe" )
-#set( CMAKE_C_COMPILER   "C:/msys64/ucrt64/bin/gcc.exe" )
+#set( CMAKE_C_COMPILER   "C:/msys64/mingw64/bin/gcc.exe" )
+#set( CMAKE_CXX_COMPILER "C:/msys64/mingw64/bin/g++.exe" )
+
 ##########################################################################
 set(This test_unit )
 
@@ -42,46 +39,46 @@ cmake_path(GET PROJECT_SOURCE_DIR PARENT_PATH PRJ_ROOT)
 set(PRJ_ROOT "${PROJECT_SOURCE_DIR}")
 message("\n\n")
 message("PROJECT ROOT at:    " ${PRJ_ROOT})
-include_directories(./include)
+
 message("Other Paths:")
 #cmake_path(APPEND HARDWARE "${PRJ_ROOT}" "hardware/arduino-git")
 cmake_path(APPEND SOFTWARE "${PRJ_ROOT}" "extras")
 
 #message("Hardware Paths:" ${HARDWARE})
 
-add_subdirectory(external)
-
+set(MCU_VARIANT_PATH "${PRJ_ROOT}/../variants/mock_v1" )
 
 message("\n\nFetchContent_MakeAvailable####################################################################")
 # For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+#set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+set(GET_ARDUINO_API ON)
+add_subdirectory(external)
 
-cmake_path(APPEND googletest_DIR "${FETCHCONTENT_BASE_DIR}" "googletest-src")
+cmake_path(APPEND arduinoHW_Core "${PRJ_ROOT}/.." "cores")
+message("Copy ${arduinoHW_Core}")
+cmake_path(APPEND ARDUINO_HW "${FETCHCONTENT_BASE_DIR}" "HW_temp")
+file(COPY "${arduinoHW_Core}" DESTINATION "${ARDUINO_HW}")
 
-FetchContent_MakeAvailable(googletest)
-FetchContent_MakeAvailable(ArduinoCore_mockMCU)
+add_subdirectory("${ARDUINO_HW}/cores/arduino" )
+add_subdirectory("../libraries" "HW/libraries" SYSTEM)
 
-cmake_path(APPEND ArduinoBufferedStreams_DIR "${FETCHCONTENT_BASE_DIR}" "ArduinoBufferedStreams-src")
 
 include(GNUInstallDirs)
 
 enable_testing()
 include(GoogleTest)
 
+
 add_subdirectory("src" "src_build")
 
-
-
-
 target_link_libraries(
-    ${TEST_TARGET} 
-   # PUBLIC LIB_HARDWARE
+  ${TEST_TARGET} 
+
   PUBLIC LIB_ARDUINO_CORE
   PUBLIC LIB_HW_LIBS
-    PUBLIC gtest 
-    PUBLIC gtest_main
-  #  PUBLIC "${ArduinoCore_mockMCU_DIR}/cores/arduino/api/deprecated"
-#virtual_instrument
+  PUBLIC gtest 
+  PUBLIC gtest_main
+ 
 )
 
 

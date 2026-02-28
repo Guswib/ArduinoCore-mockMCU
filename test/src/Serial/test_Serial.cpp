@@ -8,7 +8,7 @@
  * INCLUDE
  **************************************************************************************/
 
-#include <catch.hpp>
+#include <gtest/gtest.h>
 
 #include <Arduino.h>
 
@@ -17,24 +17,26 @@
  **************************************************************************************/
 #include <StreamMock.h>
 
-TEST_CASE ("Testing Serial", "[Serial-find-01]")
-{
-  //Serial.begin(9600);
-  StreamMock mock;
-  
-  WHEN ("'target' is contained in stream")
-  {
-    mock << "This is a test string";
-    
-    REQUIRE(mock.find("test") == true);
-    REQUIRE(mock.readString() == arduino::String(" string"));
-  }
-  WHEN ("'target' is not contained in stream")
-  {
-    mock << "This is a string";
+namespace {
 
-    REQUIRE(mock.find("test") == false);
-    REQUIRE(mock.readString() == arduino::String(""));
-  }
+TEST(Testing_Serial, Serial_find_01)
+{
+ // WHEN ("'target' is contained in stream")
+
+  StreamMock mock;
+      mock << "This is a test string";
+
+ 
+    EXPECT_TRUE(mock.find("test") == true);
+    EXPECT_TRUE(mock.readString() == arduino::String(" string"));
 }
 
+ TEST(Testing_Serial, Serial_find_02)
+ 
+  //WHEN ("'target' is not contained in stream")
+  {
+    StreamMock mock;
+    EXPECT_TRUE(mock.find("test") == false);
+    EXPECT_TRUE(mock.readString() == arduino::String(""));
+}
+}

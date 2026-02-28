@@ -22,11 +22,6 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 #FetchContent_MakeAvailable(googletest)
 
-FetchContent_Declare(
-  virtual_instrument
-  GIT_REPOSITORY https://github.com/Guswib/Virtual_Instrument.git
-  GIT_TAG        main
-)
 
 FetchContent_Declare(
   ArduinoBufferedStreams
@@ -34,25 +29,16 @@ FetchContent_Declare(
   GIT_TAG        master
 )
 
-FetchContent_Declare(
-  ArduinoCore_mockMCU
-  GIT_REPOSITORY https://github.com/Guswib/ArduinoCore-mockMCU.git
-  GIT_TAG        main
-)
+
 
 FetchContent_Declare(
-  ArduinoCore_API
+  ArduinoCore_API_github
   GIT_REPOSITORY https://github.com/arduino/ArduinoCore-API.git
   GIT_TAG        master
   #SOURCE_DIR  "${ArduinoCore_mockMCU_DIR}/cores/arduino"
 )
 
-FetchContent_Declare(
-  Virtual_Potentiostat
-  GIT_REPOSITORY https://github.com/Guswib/Virtual_Potentiostat.git
-  GIT_TAG        main
-  #SOURCE_DIR  "${ArduinoCore_mockMCU_DIR}/cores/arduino"
-)
+
 
 message("\n\nFetchContent_MakeAvailable####################################################################")
 # For Windows: Prevent overriding the parent project's compiler/linker settings
@@ -63,5 +49,10 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 message("Fetch GoogleTest")
 FetchContent_MakeAvailable(googletest)
 
-message("Fetch ArduinoCore_mockMCU")
-FetchContent_MakeAvailable( ArduinoCore_mockMCU)
+if(DEFINED GET_ARDUINO_API)
+  message("Fetch ArduinoCore_API")
+  FetchContent_MakeAvailable( ArduinoCore_API_github)
+  cmake_path(APPEND ARDUINO_HW "${FETCHCONTENT_BASE_DIR}" "HW_temp")
+  cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "ArduinoCore_API_github-src/api")
+  file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${ARDUINO_HW}/cores/arduino")
+endif()

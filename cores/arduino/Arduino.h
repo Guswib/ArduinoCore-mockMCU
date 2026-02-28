@@ -10,6 +10,8 @@
 #include <strings.h>
 
 
+#include "analog.h"
+
 #include "UART.h"
 
 #define Serial _UART0_

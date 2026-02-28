@@ -7,17 +7,16 @@
 /**************************************************************************************
  * INCLUDE
  **************************************************************************************/
-
-#include <catch.hpp>
-
+#include <gtest/gtest.h>
+#include <Arduino.h>
 #include <StreamMock.h>
 
 /**************************************************************************************
  * TEST CODE
  **************************************************************************************/
 
-TEST_CASE ("Verifying if default timeout is returned correctly", "[Stream-getTimeout-01]")
+TEST(getTimeout, Stream_getTimeout_01)
 {
   StreamMock mock;
-  REQUIRE(mock.getTimeout() == 1000);
+  EXPECT_TRUE(mock.getTimeout() == 1000);
 }

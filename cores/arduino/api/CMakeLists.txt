@@ -1,10 +1,10 @@
 # Check if a variable named 'MY_VARIABLE' is set
 if(DEFINED PATH_TO_ARDUINO_API)
-    message("API: PATH_TO_ARDUINO_API is set. Value: ${PATH_TO_ARDUINO_API}")
+ #   message("       API: PATH_TO_ARDUINO_API is set. Value: ${PATH_TO_ARDUINO_API}")
 else()
     set(PATH_TO_ARDUINO_API "${CMAKE_CURRENT_LIST_DIR}")
-    message("1API: PATH_TO_ARDUINO_API is not set. Defaulting to: ${PATH_TO_ARDUINO_API}")
-        message("1API: PATH_TO_ARDUINO_API is not set. Defaulting to: ${CMAKE_CURRENT_LIST_DIR}")
+    message("       API: PATH_TO_ARDUINO_API is not set. Defaulting to: ${PATH_TO_ARDUINO_API}")
+    message("       API: PATH_TO_ARDUINO_API is not set. Defaulting to: ${CMAKE_CURRENT_LIST_DIR}")
 
 endif()
 

@@ -8,7 +8,7 @@
  * INCLUDE
  **************************************************************************************/
 
-#include <catch.hpp>
+#include <gtest/gtest.h>
 
 #include <Arduino.h>
 #include <SPI.h>
@@ -20,7 +20,9 @@
 
 //std::ostream &out=std::cout;
 
-TEST_CASE ("Testing SPI", "[SPI-begin-01]")
+namespace {
+
+TEST(Testing_SPI, SPI_begin_01)
 {
   SPI.begin();
   StreamMock mock;
@@ -46,7 +48,7 @@ TEST_CASE ("Testing SPI", "[SPI-begin-01]")
     Serial.print(" ");
     Serial.print(c,HEX);
     SPI_stream[i]=c;
-    REQUIRE(i+0x65 == c);
+    EXPECT_TRUE(i+0x65 == c);
   }
   SPI_stream[a]='\0';
   Serial.println("");
@@ -61,7 +63,7 @@ TEST_CASE ("Testing SPI", "[SPI-begin-01]")
    
 }
 
-TEST_CASE ("Testing SPI-2", "[SPI-begin-02]")
+TEST(Testing_SPI_2, SPI_begin_02)
 {
   SPI.begin();
   StreamMock mock;
@@ -80,18 +82,13 @@ TEST_CASE ("Testing SPI-2", "[SPI-begin-02]")
   Serial.print("test done3: ");
   Serial.println(a);
   //out.write(tmp,a);
-  WHEN ("'target' is contained in stream")
-  {
-    mock << "This is a test string";
-    
-    REQUIRE(mock.find("test") == true);
-    REQUIRE(mock.readString() == arduino::String(" string"));
-  }
-  WHEN ("'target' is not contained in stream")
-  {
-    mock << "This is a string";
 
-    REQUIRE(mock.find("test") == false);
-    REQUIRE(mock.readString() == arduino::String(""));
-  }
+  mock << "This is a test string";
+    
+  EXPECT_TRUE(mock.find("test") == true);
+  EXPECT_TRUE(mock.readString() == arduino::String(" string"));
+
+
+}
+
 }

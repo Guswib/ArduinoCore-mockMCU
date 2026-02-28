@@ -1,11 +1,14 @@
 
 # CMakeLists.txt for the hardware layer of the project
+
+set(FETCHCONTENT_UPDATES_DISCONNECTED ON CACHE BOOL "Do not update every time I run cmake, please")
+
 include(FetchContent)
 
 
 #set(BASE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(BASE_DIR "${CMAKE_CURRENT_LIST_DIR}")
-message("Adding Hardware #######################################################")
+message("\nAdding Hardware #######################################################")
 
 #################################################
 #Download ArduinoCore_API
@@ -17,15 +20,25 @@ FetchContent_Declare(
     GIT_TAG        master
     #SOURCE_DIR  "${ArduinoCore_mockMCU_DIR}/cores/arduino"
   )
+message("   - Arduino_API:")
+message("       - Fetching from github")
+
 FetchContent_MakeAvailable(ArduinoCore_API_github)
 
 cmake_path(APPEND ARDUINO_HW "${FETCHCONTENT_BASE_DIR}" "HW_temp")
 
 cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "ArduinoCore_API_github-src/api")
+
+#message("       - Copying API from ${ArduinoCore_API_SRC_DIR} to ${ARDUINO_HW}/cores/arduino")
+message("       - Copying API")
+
 file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${ARDUINO_HW}/cores/arduino")
+cmake_path(APPEND PATH_TO_ARDUINO_API "${ARDUINO_HW}/cores/arduino/api")    
 
 cmake_path(APPEND arduinoHW_Core "${BASE_DIR}" "cores")
-message("Copy ${arduinoHW_Core}")
+message("   - ArduinoCore:")
+message("       - Copy Core")
+
 file(COPY "${arduinoHW_Core}" DESTINATION "${ARDUINO_HW}")
 
 add_subdirectory(${ARDUINO_HW}/cores/arduino "HW/cores/arduino" SYSTEM)
@@ -34,7 +47,7 @@ add_subdirectory(${ARDUINO_HW}/cores/arduino "HW/cores/arduino" SYSTEM)
 cmake_path(APPEND arduinoHW_Lib "${BASE_DIR}" "libraries")
 add_subdirectory(${arduinoHW_Lib} "HW/libraries")
 
-message(${arduinoHW_Core})
+#message(${arduinoHW_Core})
 
 #set(MCU_VARIANT_PATH "${arduinoHW_Variants}/mock_v1" )
 
@@ -50,7 +63,7 @@ if(NOT TARGET LIB_HARDWARE)
 
         
     )
-    message("\nADDING THE HARDWARE######:  ")
+   # message("\nADDING THE HARDWARE######:  ")
    # get_target_property(LIB_HARDWARE_INCLUDES LIB_HARDWARE INCLUDE_DIRECTORIES)
     list(REMOVE_DUPLICATES LIB_HARDWARE_INCLUDES)
     set_target_properties(LIB_HARDWARE PROPERTIES INCLUDE_DIRECTORIES "${LIB_HARDWARE_INCLUDES}")
@@ -65,4 +78,4 @@ if(NOT TARGET LIB_HARDWARE)
 
 endif()
 
-message("\nADD HARDWARE###### ENDED##########33\n")
+message("\nDONE - ADD HARDWARE######\n")
