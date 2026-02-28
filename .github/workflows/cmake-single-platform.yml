@@ -35,7 +35,8 @@ jobs:
       run: |
         if [[ $(grep -r api platform.txt) ]]; then echo "::set-output name=IS_API::true"; fi
     - name: Install ArduinoCore-API
-      run: rm "$GITHUB_WORKSPACE/cores/arduino/api" && mv "$GITHUB_WORKSPACE/extras/ArduinoCore-API/api" "$GITHUB_WORKSPACE/cores/arduino"
+      run: cp -r "$GITHUB_WORKSPACE/extras/ArduinoCore-API/api" "$GITHUB_WORKSPACE/cores/arduino"
+      #run: rm "$GITHUB_WORKSPACE/cores/arduino/api" && mv "$GITHUB_WORKSPACE/extras/ArduinoCore-API/api" "$GITHUB_WORKSPACE/cores/arduino"
       # run: mv "$GITHUB_WORKSPACE/extras/ArduinoCore-API/api" "$GITHUB_WORKSPACE/cores/arduino"
       if: steps.checkapi.outputs.IS_API == 'true'
 
@@ -46,7 +47,7 @@ jobs:
       working-directory: ${{github.workspace}}/test
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: cmake -S "." -B ${{github.workspace}}/test/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -S "." -B ${{github.workspace}}/test/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_POLICY_VERSION_MINIMUM=3.5 
 
     - name: List files in all
       continue-on-error: true
