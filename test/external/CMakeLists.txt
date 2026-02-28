@@ -32,7 +32,7 @@ FetchContent_Declare(
 
 
 FetchContent_Declare(
-  ArduinoCore_API_github
+  arduinocore_api_github
   GIT_REPOSITORY https://github.com/arduino/ArduinoCore-API.git
   GIT_TAG        master
   #SOURCE_DIR  "${ArduinoCore_mockMCU_DIR}/cores/arduino"
@@ -51,9 +51,9 @@ FetchContent_MakeAvailable(googletest)
 
 if(DEFINED GET_ARDUINO_API)
   message("Fetch ArduinoCore_API")
-  FetchContent_MakeAvailable( ArduinoCore_API_github)
+  FetchContent_MakeAvailable( arduinocore_api_github)
   cmake_path(APPEND ARDUINO_HW "${FETCHCONTENT_BASE_DIR}" "HW_temp")
-  cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "ArduinoCore_API_github-src/api")
+  cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "arduinocore_api_github-src/api")
   file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${ARDUINO_HW}/cores/arduino")
-  
+
 endif()
