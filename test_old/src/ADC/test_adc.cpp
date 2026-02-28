@@ -8,7 +8,8 @@
  * INCLUDE
  **************************************************************************************/
 
-#include <gtest/gtest.h>
+#include <catch.hpp>
+
 #include <Arduino.h>
 #include <SPI.h>
 #include <iostream>
@@ -18,14 +19,9 @@
 #include <StreamMock.h>
 
 //std::ostream &out=std::cout;
-namespace {
 
-TEST(Testing_ADC, begin)
+TEST_CASE ("Testing ADC", "[ADC-begin-01]")
 {
   int a =analogRead(A0);
   
-}
-
-
-
 }

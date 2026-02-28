@@ -8,24 +8,33 @@
  * INCLUDE
  **************************************************************************************/
 
-#include <gtest/gtest.h>
+#include <catch.hpp>
+
 #include <Arduino.h>
-#include <SPI.h>
-#include <iostream>
+
 /**************************************************************************************
  * TEST CODE
  **************************************************************************************/
 #include <StreamMock.h>
 
-//std::ostream &out=std::cout;
-namespace {
-
-TEST(Testing_ADC, begin)
+TEST_CASE ("Testing Serial", "[Serial-find-01]")
 {
-  int a =analogRead(A0);
+  //Serial.begin(9600);
+  StreamMock mock;
   
+  WHEN ("'target' is contained in stream")
+  {
+    mock << "This is a test string";
+    
+    REQUIRE(mock.find("test") == true);
+    REQUIRE(mock.readString() == arduino::String(" string"));
+  }
+  WHEN ("'target' is not contained in stream")
+  {
+    mock << "This is a string";
+
+    REQUIRE(mock.find("test") == false);
+    REQUIRE(mock.readString() == arduino::String(""));
+  }
 }
 
-
-
-}

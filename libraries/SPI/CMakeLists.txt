@@ -17,7 +17,6 @@ target_sources(LIB_SPI
 target_include_directories(LIB_SPI
     PUBLIC
         ${CMAKE_CURRENT_LIST_DIR}
-        ${MCU_VARIANT_PATH}
 )
 
 target_link_libraries(LIB_SPI 

@@ -1,221 +1,92 @@
-# SPDX-License-Identifier: LGPL-2.1-or-later
 
 #Set up everuthing:
 # cmake -G "MinGW Makefiles"
 ##########################################################################
+set(TEST_TARGET "UnitTest" )
 
 cmake_minimum_required(VERSION 3.25)
-
+set(CMAKE_POLICY_VERSION_MINIMUM 3.5
+)
+ 
+set( CMAKE_C_COMPILER   "C:/msys64/mingw64/bin/gcc.exe" )
+set( CMAKE_CXX_COMPILER "C:/msys64/mingw64/bin/g++.exe" )
+#set( CMAKE_CXX_COMPILER "C:/MinGW/bin/g++.exe" )
+#set( CMAKE_C_COMPILER   "C:/MinGW/bin/gcc.exe" )
+#set( CMAKE_CXX_COMPILER "C:/msys64/ucrt64/bin/g++.exe" )
+#set( CMAKE_C_COMPILER   "C:/msys64/ucrt64/bin/gcc.exe" )
 ##########################################################################
+set(This test_unit )
 
-project(example_test LANGUAGES CXX)
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS ON) # Ensures you use standard C++, not compiler-specific hacks
 
+project(${This} C CXX)
+
+add_executable(
+  "${TEST_TARGET}" ""
+)
+
+# project(ECiLoggerTest LANGUAGES CXX)
 include (CTest)
-include(FetchContent)
-set(FETCHCONTENT_UPDATES_DISCONNECTED ON CACHE BOOL "Do not update every time I run cmake, please")
+#project(example_test LANGUAGES C CXX)
 
-##########################################################################
+set(CMAKE_C_STANDARD 99)
+# GoogleTest requires at least C++14
+set(CMAKE_CXX_STANDARD 17)
 
-set(LIB_MCU_VARIANT "" )
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
+
+
 
 cmake_path(GET PROJECT_SOURCE_DIR PARENT_PATH PRJ_ROOT)
+set(PRJ_ROOT "${PROJECT_SOURCE_DIR}")
 message("\n\n")
 message("PROJECT ROOT at:    " ${PRJ_ROOT})
 include_directories(./include)
 message("Other Paths:")
+#cmake_path(APPEND HARDWARE "${PRJ_ROOT}" "hardware/arduino-git")
+cmake_path(APPEND SOFTWARE "${PRJ_ROOT}" "extras")
 
-set(MCU_VARIANT_PATH "${PRJ_ROOT}/variants/mock_v1" )
-set(ArduinoCore_SRC_DIR ${PRJ_ROOT}/cores/arduino )
+#message("Hardware Paths:" ${HARDWARE})
 
-
-cmake_path(APPEND ArduinoCore_mockMCU_DIR "${PROJECT_SOURCE_DIR}" "build/_deps/HW")
-file(COPY "${PROJECT_SOURCE_DIR}/../cores" DESTINATION "${ArduinoCore_mockMCU_DIR}")
-
-#set(arduinoCore ${PROJECT_SOURCE_DIR}/../cores/arduino )
-set(arduinoCore ${ArduinoCore_mockMCU_DIR}/cores/arduino )
-
-#file(REMOVE "${ArduinoCore_mockMCU_DIR}/cores/arduino/api")
-
-file(COPY "${ArduinoCore_SRC_DIR}" DESTINATION "${ArduinoCore_mockMCU_DIR}/cores/arduino")
+add_subdirectory(external)
 
 
-cmake_path(APPEND arduinoCore "${ArduinoCore_mockMCU_DIR}" "cores/arduino")
+message("\n\nFetchContent_MakeAvailable####################################################################")
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
-message("Arduino Core:       ${arduinoCore} - copy")
+cmake_path(APPEND googletest_DIR "${FETCHCONTENT_BASE_DIR}" "googletest-src")
 
-#include_directories(${arduinoCore}) #Path tho arduino-core
-cmake_path(APPEND arduinoCore_API "${ArduinoCore_mockMCU_DIR}" "cores/arduino/api")
-message("ArduinpCoreAPI---${arduinoCore_API}")
+FetchContent_MakeAvailable(googletest)
+FetchContent_MakeAvailable(ArduinoCore_mockMCU)
 
-if(IS_SYMLINK ${arduinoCore_API})
-  message("---path to API is a symlink")
-endif()
+cmake_path(APPEND ArduinoBufferedStreams_DIR "${FETCHCONTENT_BASE_DIR}" "ArduinoBufferedStreams-src")
 
+include(GNUInstallDirs)
 
-#set(arduinoCore_API ${PROJECT_SOURCE_DIR}/../cores/arduino/api )
+enable_testing()
+include(GoogleTest)
 
-cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "ArduinoCore_API_github-src/api")
-
-
-if(NOT EXISTS "${ArduinoCore_API_SRC_DIR}/ArduinoAPI.h")
-#if(NOT EXISTS "${arduinoCore_API}/ArduinoAPI.h")
-  FetchContent_Declare(
-    ArduinoCore_API_github
-    GIT_REPOSITORY https://github.com/arduino/ArduinoCore-API.git
-    GIT_TAG        master
-    #SOURCE_DIR  "${ArduinoCore_mockMCU_DIR}/cores/arduino"
-  )
-  message("Arduino_API: Fetching from github")
-  FetchContent_MakeAvailable(ArduinoCore_API_github)
-
-endif()
-
-if(EXISTS "${ArduinoCore_API_SRC_DIR}/ArduinoAPI.h")
-    message("---ArduinoCoreAPI found locally")
-    file(REMOVE "${ArduinoCore_mockMCU_DIR}/cores/arduino/api")
-    file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${ArduinoCore_mockMCU_DIR}/cores/arduino")
-
-    message("---ArduinoCoreAPI copied")
-    set(arduinoCore_API "${ArduinoCore_mockMCU_DIR}/cores/arduino/api")
-
-endif()
-
-set(arduinoCore_API_exists false )
-if(EXISTS ${arduinoCore_API})
-  set(arduinoCore_API_exists true )
-endif()
-
-#set(PATH_TO_ARDUINO_API ${ArduinoCore_API_SRC_DIR})
-
-message("Arduino_API at:      " ${arduinoCore_API} "       exists?" ${arduinoCore_API_exists})
-
-
-include_directories(external/catch/v2.13.9/include)
-#target_include_directories(Catch INTERFACE "external/catch/v2.13.9/include")
-
-
-message("Included dir:  " ${INCLUDE_DIRECTORIES})
-
-##########################################################################
-
-set(CMAKE_CXX_STANDARD 11)
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
-##########################################################################
-
-set(TEST_TARGET ${CMAKE_PROJECT_NAME})
-
-##########################################################################
-message("Included subdir:  " ${arduinoCore})
-
-add_subdirectory("${arduinoCore}" "HW/cores/arduino")
-
-#add_subdirectory("${MCU_VARIANT_PATH}" HW/variants/mock_v1)
-
-#add_subdirectory("${PRJ_ROOT}/." HW/.) //does not work.
-
-message("Included dir2:  " ${INCLUDE_DIRECTORIES})
-
-#add_subdirectory("${PRJ_ROOT}/cores/arduino" "HW/core/arduino") has problems with symbolic links
-
-add_subdirectory("${PRJ_ROOT}/libraries" "HW/libraries")
-
-#get_target_property(LIB_HW_LIBS_INCLUDES LIB_HW_LIBS INCLUDE_DIRECTORIES)
-get_target_property(LIB_ARDUINO_CORE_INCLUDES LIB_ARDUINO_CORE INCLUDE_DIRECTORIES)
-##SELECT WHICH VARIANT TO USE:
-#get_target_property(LIB_VARIANT_INCLUDES LIB_VARIANT_MOCK_V1 INCLUDE_DIRECTORIES)
-
-
-##########################################################################
-
-add_subdirectory(src) #adds all tests
-
-set(TEST_TARGET_SRCS
-  src/main.cpp
-  ${TEST_SRCS}
-)
-##########################################################################
-
-add_compile_definitions(HOST)
-#add_compile_options(-Wall -Wextra -Wpedantic -Werror)
-add_compile_options(-Wno-cast-function-type) 
-#add_compile_options(-Werror=unused-parameter)
-add_compile_options(-ftest-coverage) 
-
-set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} --coverage")
-# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -Wno-deprecated-copy -fprofile-arcs")
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -fprofile-arcs")
-#set( CMAKE_EXE_LINKER_FLAGS "$CMALE_EXE_LINKER_FLAGS")
-
-##########################################################################
-
-include(FetchContent)
-
-FetchContent_Declare(
-  Catch2 
-  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-  GIT_TAG v2.13.10
-  )
-  
-cmake_path(APPEND catch2_SOURCE_DIR "${PROJECT_SOURCE_DIR}" "build/_deps/catch2-src")
-
-list(APPEND CMAKE_MODULE_PATH "${catch2_SOURCE_DIR}/contrib")
-FetchContent_MakeAvailable(Catch2)
+add_subdirectory("src" "src_build")
 
 
 
-#######################################
 
-add_executable(
-  ${TEST_TARGET}
-  ${TEST_TARGET_SRCS}
-)
-
-
-get_target_property(LIB_HARDWARE_INCLUDES ${TEST_TARGET} SOURCES)
-    message("SOURCES")
-    foreach(dir ${TEST_TARGET_SRCS})
-        message(STATUS "  - ${dir}")
-    endforeach()
-
-get_target_property(LIB_HARDWARE_INCLUDES ${TEST_TARGET} INCLUDE_DIRECTORIES)
-    message("LIB_HARDWARE_INCLUDES")
-    foreach(dir ${LIB_HARDWARE_INCLUDES})
-        message(STATUS "  - ${dir}")
-    endforeach()
-#target_include_directories(${TEST_TARGET} PUBLIC )
-#target_include_directories(${TEST_TARGET} PUBLIC )
-#include_directories(
-#  ${LIB_HW_LIBS_INCLUDES}
-#${LIB_ARDUINO_CORE_INCLUDES}
-#${LIB_VARIANT_INCLUDES})
-#set(ALL_INCLUDED )
-#get_target_property(ALL_INCLUDES ${TEST_TARGET} INCLUDE_DIRECTORIES)
-#message("INCLUIDE\n" ${LIB_ARDUINO_CORE_INCLUDES} )
-##########################################################################
-#target_link_libraries(${TEST_TARGET} PUBLIC Catch2::Catch2)
-
-
-target_link_libraries(${TEST_TARGET} 
-  PUBLIC Catch2::Catch2
+target_link_libraries(
+    ${TEST_TARGET} 
+   # PUBLIC LIB_HARDWARE
   PUBLIC LIB_ARDUINO_CORE
   PUBLIC LIB_HW_LIBS
-
-  #PUBLIC LIB_VARIANT_MOCK_V1
+    PUBLIC gtest 
+    PUBLIC gtest_main
+  #  PUBLIC "${ArduinoCore_mockMCU_DIR}/cores/arduino/api/deprecated"
+#virtual_instrument
 )
-#include_directories(${PRJ_ROOT}/variants/mock_v1)
-target_compile_options(${TEST_TARGET} PRIVATE "-include" "cstring")
 
-# find_package(Catch REQUIRED)
-enable_testing()
-include(Catch)
-add_test(NAME MockV1testing COMMAND ${TEST_TARGET} )
-include_directories("C:/msys64/mingw64/include")
-# add_test(NAME catch_test COMMAND ${TEST_TARGET} --success)
 
-catch_discover_tests(${TEST_TARGET})
+gtest_discover_tests(${TEST_TARGET})
+
+add_test(NAME ${TEST_TARGET}
+         COMMAND ${TEST_TARGET}
+         )

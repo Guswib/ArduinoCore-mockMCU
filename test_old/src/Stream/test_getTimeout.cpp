@@ -1,35 +1,23 @@
 /*
  * Copyright (c) 2020 Arduino.  All rights reserved.
+ *
+ * SPDX-License-Identifier: LGPL-2.1-or-later
  */
-
-#ifndef PRINTABLE_MOCK_H_
-#define PRINTABLE_MOCK_H_
 
 /**************************************************************************************
  * INCLUDE
  **************************************************************************************/
 
-#include <string>
+#include <catch.hpp>
 
-#include <api/Printable.h>
+#include <StreamMock.h>
 
 /**************************************************************************************
- * CLASS DECLARATION
+ * TEST CODE
  **************************************************************************************/
 
-class PrintableMock : public arduino::Printable
+TEST_CASE ("Verifying if default timeout is returned correctly", "[Stream-getTimeout-01]")
 {
-public:
-  int _i;
-  virtual size_t printTo(arduino::Print& p) const override
-  {
-    size_t written = 0;
-    //written += p.print("PrintableMock i = ");
-    //written += p.print(_i);
-    return written;
-  };
-  
-
-};
-
-#endif /* PRINTABLE_MOCK_H_ */
+  StreamMock mock;
+  REQUIRE(mock.getTimeout() == 1000);
+}

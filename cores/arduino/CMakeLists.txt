@@ -28,6 +28,19 @@ else()
     endif()
 endif()
 
+set(header_files
+    ${CMAKE_CURRENT_LIST_DIR}/Arduino.h
+    ${CMAKE_CURRENT_LIST_DIR}/UART.h
+    ${CMAKE_CURRENT_LIST_DIR}/Stream.h
+
+
+    ${CMAKE_CURRENT_LIST_DIR}/mock/MillisFake.h
+    ${CMAKE_CURRENT_LIST_DIR}/mock/PrintableMock.h
+    ${CMAKE_CURRENT_LIST_DIR}/mock/PrintMock.h
+    ${CMAKE_CURRENT_LIST_DIR}/mock/StreamMock.h
+) # Creates a list: a;b;c
+
+
 if(NOT TARGET LIB_ARDUINO_CORE)
     add_library(LIB_ARDUINO_CORE STATIC "")
 
@@ -37,6 +50,12 @@ if(NOT TARGET LIB_ARDUINO_CORE)
 
 #target_compile_options(LIB_ARDUINO_CORE PRIVATE "-include" "string")
 #target_compile_options(LIB_ARDUINO_CORE PRIVATE "-include" "cstring")
+     target_sources(LIB_ARDUINO_CORE
+        PUBLIC
+        FILE_SET HEADERS
+        BASE_DIRS "${CMAKE_CURRENT_LIST_DIR}"         
+        FILES ${header_files}
+     )
 
     target_sources(LIB_ARDUINO_CORE
         PRIVATE
@@ -47,18 +66,8 @@ if(NOT TARGET LIB_ARDUINO_CORE)
             ${CMAKE_CURRENT_LIST_DIR}/UART0.cpp  
             ${CMAKE_CURRENT_LIST_DIR}/UART1.cpp  
             ${CMAKE_CURRENT_LIST_DIR}/UART2.cpp  
-            ${CMAKE_CURRENT_LIST_DIR}/UART3.cpp  
-            
-        PUBLIC
-            ${CMAKE_CURRENT_LIST_DIR}/Arduino.h
-            ${CMAKE_CURRENT_LIST_DIR}/UART.h
-
-            ${CMAKE_CURRENT_LIST_DIR}/mock/MillisFake.h
-            ${CMAKE_CURRENT_LIST_DIR}/mock/PrintableMock.h
-            ${CMAKE_CURRENT_LIST_DIR}/mock/PrintMock.h
-            ${CMAKE_CURRENT_LIST_DIR}/mock/StreamMock.h
-
-
+            ${CMAKE_CURRENT_LIST_DIR}/UART3.cpp 
+            ${CMAKE_CURRENT_LIST_DIR}/analog.cpp
     )
     target_include_directories(LIB_ARDUINO_CORE
         PUBLIC 
@@ -67,10 +76,7 @@ if(NOT TARGET LIB_ARDUINO_CORE)
             ${MCU_VARIANT_PATH}
             ${CMAKE_CURRENT_LIST_DIR}/mock
     )
-    #target_link_libraries(LIB_ARDUINO_CORE 
-  #  PUBLIC LIB_ARDUINO_CORE_API
-   # PUBLIC ${LIB_MCU_VARIANT}
-   # )
+
     install(
         TARGETS LIB_ARDUINO_CORE
         RUNTIME_DEPENDENCIES

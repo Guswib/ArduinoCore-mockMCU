@@ -8,24 +8,19 @@
  * INCLUDE
  **************************************************************************************/
 
-#include <gtest/gtest.h>
-#include <Arduino.h>
-#include <SPI.h>
-#include <iostream>
+#include <catch.hpp>
+
+#include <StreamMock.h>
+
 /**************************************************************************************
  * TEST CODE
  **************************************************************************************/
-#include <StreamMock.h>
 
-//std::ostream &out=std::cout;
-namespace {
-
-TEST(Testing_ADC, begin)
+TEST_CASE ("Verifying if calling 'setTimeout' is indeed modifying the timeout", "[Stream-setTimeout-01]")
 {
-  int a =analogRead(A0);
-  
-}
+  StreamMock mock;
 
+  mock.setTimeout(100);
 
-
+  REQUIRE(mock.getTimeout() == 100);
 }

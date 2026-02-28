@@ -1,31 +1,28 @@
 /*
  * Copyright (c) 2020 Arduino.  All rights reserved.
+ *
+ * SPDX-License-Identifier: LGPL-2.1-or-later
  */
-
-#ifndef MILLIS_FAKE_H_
-#define MILLIS_FAKE_H_
 
 /**************************************************************************************
  * INCLUDE
  **************************************************************************************/
 
-#include <api/Common.h>
+#include <catch.hpp>
+
+#include <MillisFake.h>
+#include <StreamMock.h>
 
 /**************************************************************************************
- * FUNCTION DECLARATION
+ * TEST CODE
  **************************************************************************************/
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+TEST_CASE ("Testing 'readString' with data available within the stream", "[Stream-readString-01]")
+{
+  StreamMock mock;
+  mock.setTimeout(10);
+  millis_autoOn();
+  mock << "This is test stream content";
 
-void millis_autoOn();
-void millis_autoOff();
-void set_millis(unsigned long const val);
-
-
-#ifdef __cplusplus
+  REQUIRE(mock.readString() == arduino::String("This is test stream content"));
 }
-#endif
-
-#endif /* MILLIS_FAKE_H_ */
