@@ -4,7 +4,7 @@
 ##########################################################################
 set(TEST_TARGET "UnitTest" )
 
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 4.2)
 set(CMAKE_POLICY_VERSION_MINIMUM 3.5
 )
  
