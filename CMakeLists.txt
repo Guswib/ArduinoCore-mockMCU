@@ -6,6 +6,7 @@ set(BASE_DIR "${CMAKE_CURRENT_LIST_DIR}")
 message("\nAdding Hardware #######################################################")
 message("   - Arduino_API:")
 
+
 set(PATH_TO_ARDUINO_HW "${CMAKE_CURRENT_LIST_DIR}" )
 cmake_path(APPEND PATH_TO_ARDUINO_API "${PATH_TO_ARDUINO_HW}/cores/arduino/api")    
 #    message("       - ArduinoCore-API alread.${PATH_TO_ARDUINO_API}")
@@ -43,18 +44,18 @@ else()
     #message("       - Copying API from ${ArduinoCore_API_SRC_DIR} to ${ARDUINO_HW}/cores/arduino")
     message("       - Copying API")
 
-    file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${ARDUINO_HW}/cores/arduino")
-    cmake_path(APPEND PATH_TO_ARDUINO_API "${ARDUINO_HW}/cores/arduino/api")    
+    file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${PATH_TO_ARDUINO_HW}/cores/arduino")
+    cmake_path(APPEND PATH_TO_ARDUINO_API "${PATH_TO_ARDUINO_HW}/cores/arduino/api")    
 
     cmake_path(APPEND arduinoHW_Core "${BASE_DIR}" "cores")
     message("   - ArduinoCore:")
     message("       - Copy Core")
 
-    file(COPY "${arduinoHW_Core}" DESTINATION "${ARDUINO_HW}")
+    file(COPY "${arduinoHW_Core}" DESTINATION "${PATH_TO_ARDUINO_HW}")
 endif()
 
 
-add_subdirectory(${ARDUINO_HW}/cores/arduino "HW/cores/arduino" SYSTEM)
+add_subdirectory(${PATH_TO_ARDUINO_HW}/cores/arduino "HW/cores/arduino" SYSTEM)
 
 #cmake_path(APPEND arduinoHW_CoreAPI "${arduinoHW_Core}" "api")
 cmake_path(APPEND arduinoHW_Lib "${BASE_DIR}" "libraries")
