@@ -6,48 +6,53 @@ set(BASE_DIR "${CMAKE_CURRENT_LIST_DIR}")
 message("\nAdding Hardware #######################################################")
 message("   - Arduino_API:")
 
-cmake_path(APPEND PATH_TO_ARDUINO_API "${CMAKE_CURRENT_LIST_DIR}/cores/arduino/api")    
-    message("       - ArduinoCore-API alread.${PATH_TO_ARDUINO_API}")
+set(PATH_TO_ARDUINO_HW "${CMAKE_CURRENT_LIST_DIR}" )
+cmake_path(APPEND PATH_TO_ARDUINO_API "${PATH_TO_ARDUINO_HW}/cores/arduino/api")    
+#    message("       - ArduinoCore-API alread.${PATH_TO_ARDUINO_API}")
 #if(EXISTS "${PATH_TO_ARDUINO_API}/ArduinoAPI.h")
 #endif()
 
 if(EXISTS "${PATH_TO_ARDUINO_API}/ArduinoAPI.h")
+    #This case should be hit when the API is already present, either because it was copied there by a previous run, or because the user has it there already. In either case, we do not need to fetch it from github, and we can just use the existing one.
     message("       - ArduinoCore-API already exists.")
 else()
+    #COPY AruinoCore to new new location 
+    #Download ArduinoCore-API from github, and then copy it to the correct location
 
-set(FETCHCONTENT_UPDATES_DISCONNECTED ON CACHE BOOL "Do not update every time I run cmake, please")
+    set(FETCHCONTENT_UPDATES_DISCONNECTED ON CACHE BOOL "Do not update every time I run cmake, please")
 
-include(FetchContent)
+    include(FetchContent)
 
-#################################################
-#Download ArduinoCore_API
+    #################################################
+    #Download ArduinoCore_API
 
-set(FETCHCONTENT_UPDATES_DISCONNECTED ON CACHE BOOL "Do not update every time I run cmake, please")
-FetchContent_Declare(
-    arduinocore_api_github
-    GIT_REPOSITORY https://github.com/arduino/ArduinoCore-API.git
-    GIT_TAG        master
-    #SOURCE_DIR  "${ArduinoCore_mockMCU_DIR}/cores/arduino"
-  )
-message("       - Fetching from github")
+    set(FETCHCONTENT_UPDATES_DISCONNECTED ON CACHE BOOL "Do not update every time I run cmake, please")
+    FetchContent_Declare(
+        arduinocore_api_github
+        GIT_REPOSITORY https://github.com/arduino/ArduinoCore-API.git
+        GIT_TAG        master
+        #SOURCE_DIR  "${ArduinoCore_mockMCU_DIR}/cores/arduino"
+    )
+    message("       - Fetching from github")
 
-FetchContent_MakeAvailable(arduinocore_api_github)
+    FetchContent_MakeAvailable(arduinocore_api_github)
 
-cmake_path(APPEND ARDUINO_HW "${FETCHCONTENT_BASE_DIR}" "HW_temp")
-cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "arduinocore_api_github-src/api")
+    cmake_path(APPEND ARDUINO_HW "${FETCHCONTENT_BASE_DIR}" "HW_temp")
+    cmake_path(APPEND ArduinoCore_API_SRC_DIR "${FETCHCONTENT_BASE_DIR}" "arduinocore_api_github-src/api")
 
-#message("       - Copying API from ${ArduinoCore_API_SRC_DIR} to ${ARDUINO_HW}/cores/arduino")
-message("       - Copying API")
+    #message("       - Copying API from ${ArduinoCore_API_SRC_DIR} to ${ARDUINO_HW}/cores/arduino")
+    message("       - Copying API")
 
-file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${ARDUINO_HW}/cores/arduino")
-cmake_path(APPEND PATH_TO_ARDUINO_API "${ARDUINO_HW}/cores/arduino/api")    
+    file(COPY "${ArduinoCore_API_SRC_DIR}" DESTINATION "${ARDUINO_HW}/cores/arduino")
+    cmake_path(APPEND PATH_TO_ARDUINO_API "${ARDUINO_HW}/cores/arduino/api")    
 
-cmake_path(APPEND arduinoHW_Core "${BASE_DIR}" "cores")
-message("   - ArduinoCore:")
-message("       - Copy Core")
+    cmake_path(APPEND arduinoHW_Core "${BASE_DIR}" "cores")
+    message("   - ArduinoCore:")
+    message("       - Copy Core")
 
-file(COPY "${arduinoHW_Core}" DESTINATION "${ARDUINO_HW}")
+    file(COPY "${arduinoHW_Core}" DESTINATION "${ARDUINO_HW}")
 endif()
+
 
 add_subdirectory(${ARDUINO_HW}/cores/arduino "HW/cores/arduino" SYSTEM)
 
