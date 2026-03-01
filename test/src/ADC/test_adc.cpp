@@ -11,6 +11,8 @@
 #include <gtest/gtest.h>
 #include <Arduino.h>
 #include <iostream>
+#include <api/Common.h>
+
 /**************************************************************************************
  * TEST CODE
  **************************************************************************************/
@@ -21,7 +23,7 @@ namespace {
 
 TEST(Testing_ADC, begin)
 {
-  int a =analogRead(A0);
+  int a = analogRead(A0);
   
 }
 

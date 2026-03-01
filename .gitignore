@@ -45,3 +45,7 @@ test/Testing
 test/Makefile
 
 *.cmake
+
+core/arduino/api/*.h
+core/arduino/api/*.cpp
+core/arduino/api/*/*
