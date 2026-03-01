@@ -7,6 +7,6 @@ target_sources(${TEST_TARGET}
 add_subdirectory(DOI)
 add_subdirectory(ADC)
 
-#add_subdirectory(Stream)
-#add_subdirectory(Serial)
-#add_subdirectory(SPI)
+add_subdirectory(Stream)
+add_subdirectory(Serial)
+add_subdirectory(SPI)
