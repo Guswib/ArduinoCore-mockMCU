@@ -101,7 +101,9 @@ jobs:
           if [[ $(grep -r api platform.txt) ]]; then echo "::set-output name=IS_API::true"; fi
 
       - name: Install ArduinoCore-API
-        run: rm "$GITHUB_WORKSPACE/cores/arduino/api" && mv "$GITHUB_WORKSPACE/extras/ArduinoCore-API/api" "$GITHUB_WORKSPACE/cores/arduino"
+        run: |
+          cp -r "$GITHUB_WORKSPACE/extras/ArduinoCore-API/api" "$GITHUB_WORKSPACE/cores/arduino"
+          # - rm "$GITHUB_WORKSPACE/cores/arduino/api" && mv "$GITHUB_WORKSPACE/extras/ArduinoCore-API/api" "$GITHUB_WORKSPACE/cores/arduino"
         if: steps.checkapi.outputs.IS_API == 'true'
 
       - name: Checkout Basic examples
