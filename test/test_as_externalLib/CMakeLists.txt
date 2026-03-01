@@ -6,6 +6,7 @@
 
 cmake_minimum_required(VERSION 3.31)
 #cmake_policy(VERSION 4.2)
+add_compile_definitions(HOST)
 
 ##########################################################################
 
@@ -56,3 +57,4 @@ add_test(NAME ${TEST_TARGET}
          )
 
 #add_compile_definitions( HOST 1)
+

@@ -21,6 +21,18 @@
 //std::ostream &out=std::cout;
 namespace {
 
+TEST(Testing_ADC, ini)
+{
+  #ifdef HOST
+    std::cout << "HOST IS DEFINED" << std::endl;
+  #else
+    std::cout << "HOST IS NOT DEFINED" << std::endl; 
+  #endif
+  int a = analogRead(A0);
+  
+}
+
+
 TEST(Testing_ADC, begin)
 {
   int a = analogRead(A0);
