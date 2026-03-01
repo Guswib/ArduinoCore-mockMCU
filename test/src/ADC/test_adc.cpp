@@ -28,17 +28,53 @@ TEST(Testing_ADC, ini)
   #else
     std::cout << "HOST IS NOT DEFINED" << std::endl; 
   #endif
-  int a = analogRead(A0);
+
+  #ifdef __cplusplus
+      std::cout << "C++ IS DEFINED" << std::endl; 
+  #else
+    std::cout << "C++ IS NOT DEFINED" << std::endl; 
+  #endif
+ 
   
 }
 
 
-TEST(Testing_ADC, begin)
+TEST(Testing_ADC, analogRead)
 {
-  int a = analogRead(A0);
+  MOCKStream_analogIO.write(150);
+  MOCKStream_analogIO.write(200);
+  MOCKStream_analogIO.write(250);
+  MOCKStream_analogIO.write(50);
+  MOCKStream_analogIO.println();
+
   
+  uint8_t a = analogRead(A0);
+  EXPECT_EQ(a, 150);
+  uint8_t b = analogRead(A0);
+  EXPECT_EQ(b, 200);
+  uint8_t c = analogRead(A0);
+  EXPECT_EQ(c, 250);
+  uint8_t d = analogRead(A0);
+  EXPECT_EQ(d, 50);
+  analogRead(A0);
+  //uint8_t e = analogRead(A0);
+  //Serial.println(e);
+  //Serial.println(analogRead(A0));
+  //EXPECT_TRUE(e > 50);
 }
 
+TEST(Testing_ADC, analogWrite)
+{
+  HW_analogWrite[0] = 0;
+  analogWrite(A0, 150);
+  int a = HW_analogWrite[0];
+  EXPECT_EQ(a, 150);
+  
+  analogWrite(A0, 200);
+  int b = HW_analogWrite[0];
+  EXPECT_EQ(b, 200);
+  MOCKStream_analogIO.println();
+}
 
 
 }

@@ -6,8 +6,8 @@
 
 cmake_minimum_required(VERSION 3.31)
 #cmake_policy(VERSION 4.2)
-add_compile_definitions(HOST)
-
+#This is needed to compile the code as a host application. It will be used in the code to exclude some AVR-specific code, for example.
+add_compile_definitions(HOST) 
 ##########################################################################
 
 project(test_as_external_lib LANGUAGES CXX)

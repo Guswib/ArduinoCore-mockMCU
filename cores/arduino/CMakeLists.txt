@@ -24,7 +24,7 @@ endif()
 
 set(header_files
     ${CMAKE_CURRENT_LIST_DIR}/Arduino.h
-    ${CMAKE_CURRENT_LIST_DIR}/analog.h
+    ${CMAKE_CURRENT_LIST_DIR}/HW_IO.h
 
     ${CMAKE_CURRENT_LIST_DIR}/UART.h
     ${CMAKE_CURRENT_LIST_DIR}/Stream.h

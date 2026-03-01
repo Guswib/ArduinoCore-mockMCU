@@ -67,13 +67,11 @@ static const uint8_t SCL = WIRE_SCL_PIN;
 #define FLASH_TOTAL_SIZE    0x2000
 #define FLASH_BLOCK_SIZE    0x400
 
+
+///****** ignor the definitions DEFINES *******/
 #define _PINS_ARDUINO_H_INCLUDED 1
 #ifndef _PINS_ARDUINO_H_INCLUDED
 #define _PINS_ARDUINO_H_INCLUDED 1
-
-
-
-
 
 
 uint8_t *  portOutputRegister( uint8_t reg) {
